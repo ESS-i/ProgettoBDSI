@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{tocloft}
+\usepackage{etoolbox}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{xcolor}
+
+\definecolor{ocher}{RGB}{212, 165, 1}
+
+%--------------------------------------------------------------
+% Settings for the table of contents
+%--------------------------------------------------------------
+\renewcommand{\contentsname}{Indice}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+
+\begin{document}
+
+%--------------------------------------------------------------
+% FrontMatter
+%--------------------------------------------------------------
+\include{FrontMatter/TitlePage}
+
+%--------------------------------------------------------------
+% MainMatter
+%--------------------------------------------------------------
+\tableofcontents
+\vfill
+
+\include{Sections/1-ProgettazioneConcettuale}
+\end{document}

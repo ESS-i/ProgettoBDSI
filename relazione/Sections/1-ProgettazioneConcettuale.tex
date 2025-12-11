@@ -1,0 +1,46 @@
+\section{Progettazione Concettuale}
+\subsection{Analisi della richiesta}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{\textwidth} |}
+        \hline
+        \multicolumn{1}{|c|}{\textbf{Caserme dei Vigili del Fuoco}} \\
+        \hline
+        Il Corpo Nazionale dei Vigili del Fuoco ha richiesto la progettazione di una base di dati relativa alla gestione operativa e amministrativa delle varie caserme dislocate nelle varie province e città. Si vuole che ogni \textcolor{ocher}{\textbf{caserma}} sia identificata da un \textit{codice numerico univoco} e siano specificati un determinato \textit{indirizzo} in cui essa è locata e un \textit{numero telefonico} dal quale è raggiungibile. In primo luogo si rende necessario rappresentare i \textcolor{ocher}{\textbf{dipendenti}} rilevanti per il contesto: \textcolor{ocher}{\textbf{vigili}}, \textcolor{ocher}{\textbf{centralinisti}} e \textcolor{ocher}{\textbf{personale amministrativo}}. Per ognuno di loro, vogliamo memorizzare il \textit{nome}, il \textit{cognome}, lo stipendio percepito e la caserma a cui fanno riferimento. Per quanto concerne i vigili, essi \underline{apparterranno} ad un determinato reparto e possiederanno uno specifico \textit{grado}. I centralinisti oltre ai dati comuni, devono avere registrati \textit{l'anno di assunzione} e \textit{l'orario del turno lavorativo}, in quanto considerati lavoratori part-time. Il loro compito primario è \underline{ricevere} le \textcolor{ocher}{\textbf{chiamate}} di emergenza. Ogni chiamata è identificata in modo univoco da un \textit{codice} e deve includere \textit{orario di inizio e fine}, il \textit{numero telefonico del chiamante} e la \textit{descrizione} sintetica dell'emergenza. Ogni chiamata può risolversi in due modi differenti: \underline{generare} un \textcolor{ocher}{\textbf{intervento}} o meno. Di ogni intervento (identificato anch’esso tramite un \textit{codice} univoco) si vuole tener traccia del suo \textit{tipo} e della sua \textit{priorità} nonché dell’\textit{orario di inizio} (a partire dalla fine della chiamata) e di \textit{fine}, con eventuale \textit{esito} dell’operazione. A supporto dell’operazione, possono essere \underline{impiegati} uno o più \textcolor{ocher}{\textbf{mezzi}}, descritti per \textit{classe} (ad esempio: terrestre, aereo e marino), \textit{modello}, \textit{anno di fabbricazione} e \textit{data dell’ultima \textcolor{ocher}{\textbf{manutenzione}} effettuata}. Queste ultime, \underline{richieste} dal personale amministrativo e svolte da \textcolor{ocher}{\textbf{officine}} convenzionate in una determinata \textit{data}, riguardano uno specifico mezzo, possono essere richieste in via \textit{ordinaria} (dopo un certo tempo dall’ultima revisione) o \textit{straordinaria} (in caso di guasti) e comportano una determinata \textit{spesa}. Ci interessa anche avere una breve \textit{descrizione} dell’intervento. Ogni vigile \underline{appartiene} ad una \textcolor{ocher}{\textbf{squadra}}, la quale \underline{afferisce} ad un particolare amministrativo che la supervisiona. Essa inoltre è caratterizzata da un \textit{codice} che la identifica, una \textit{denominazione operativa}, \textit{l’area di competenza} e \textit{la data di costituzione del gruppo}, per determinarne l’anzianità. \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\vfill
+
+\subsection{Raffinazione dei concetti, costruzione dello schema concettuale}
+
+In primo luogo siamo partiti da schemi scheletro di questo tipo, evidenziando quelli che sono i concetti fondamentali specificati nella richiesta. Abbiamo preso in considerazione un sottoinsieme delle varie entità individuando le relazioni fondamentali che le legano. In particolare si noti come la base dovrebbe occuparsi della gestione di 3 ambiti diversi: gestione chiamate, interventi e richiesta di manutenzione.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Schemas/Schema1.pdf}
+    \caption{Schemi 1, 2, 3}
+\end{figure}
+
+Osserviamo come i \textbf{vigili}, i \textbf{centralinisti} e il \textbf{personale amministrativo} possano essere accorpati all’interno della generalizzazione (dalle specifiche totale e sovrapposta) \textbf{Dipendente} che riunisce le caratteristiche (attributi) comuni, come il \textit{nome}, il \textit{cognome}, lo \textit{stipendio} percepito e la \textbf{\textit{caserma}} in cui lavorano.
+Risulta il seguente:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Schemas/Schema4.pdf}
+    \caption{Schema 4}
+\end{figure}
+
+A questo punto ci concentriamo sulla parte relativa a tutti gli aspetti di un intervento, notando in primo luogo come una chiamata possa generare o meno un intervento (relazione che quindi lega queste entità) e come quest’ultimo venga gestito da una squadra, ossia da un insieme di vigili che modelliamo come entità ulteriore.
+
+Infine, la parte amministrativa. Il personale amministrativo come già detto ha due ruoli:
+\begin{itemize}
+    \item Richiede le manutenzioni che verranno \textit{effettuate} su dei \textbf{mezzi} (modellati come entità), \textit{impiegati} nell’ambito degli interventi e rev
+    \item È responsabile della squadra, a cui essa afferisce
+\end{itemize}
+
+A seguito di integrazione e della naturale modellazione di queste ultime tre relazioni e dell’aggiunta dell’entità \textbf{officina}  che \underline{effettua} la manutenzione(nonché convenzionata con la caserma) otteniamo il seguente:
+
+\textbf{}
