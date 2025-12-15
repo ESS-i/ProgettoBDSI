@@ -15,13 +15,13 @@
         I centralinisti oltre ai dati comuni, devono avere registrati \textit{l'anno di assunzione} e \textit{l'orario del turno lavorativo}, in quanto considerati lavoratori part-time.
         Il loro compito primario è \underline{ricevere} le \textcolor{olive}{\textbf{chiamate}} di emergenza.
         Ogni chiamata è identificata in modo univoco da un \textit{codice} e deve includere \textit{orario di inizio e fine}, il \textit{numero telefonico del chiamante} e la \textit{descrizione} sintetica dell'emergenza.
-        Ogni chiamata può risolversi in due modi differenti: \underline{generare} un singolo \textcolor{olive}{\textbf{intervento}} o meno.
-        Di ogni intervento (identificato anch’esso tramite un \textit{codice} univoco) si vuole tener traccia del suo \textit{tipo} e della sua \textit{priorità} nonché dell’\textit{orario di inizio} (a partire dalla fine della chiamata) e di \textit{fine}, con eventuale \textit{esito} dell’operazione.
+        Ogni chiamata può risolversi in due modi differenti: \underline{generare} un singolo \textcolor{olive}{\textbf{intervento}} o meno, che sarà \textit{assegnato} ad una squadra.
+        Di ogni intervento si vuole tener traccia del suo \textit{tipo} e della sua \textit{priorità} nonché dell’\textit{orario di inizio} (a partire dalla fine della chiamata) e di \textit{fine}, con eventuale \textit{esito} dell’operazione.
         A supporto dell’operazione, possono essere \underline{impiegati} uno o più \textcolor{olive}{\textbf{mezzi}}, descritti per \textit{classe} (ad esempio: terrestre, aereo e marino), \textit{modello}, \textit{anno di fabbricazione} e \textit{data dell’ultima \textcolor{olive}{\textbf{manutenzione}} effettuata}.
-        Queste ultime, \underline{richieste} dal personale amministrativo e svolte da \textcolor{olive}{\textbf{officine}} convenzionate in una determinata \textit{data}, riguardano uno specifico mezzo, possono essere richieste in via \textit{ordinaria} (dopo un certo tempo dall’ultima revisione) o \textit{straordinaria} (in caso di guasti) e comportano una determinata \textit{spesa}.
+        Queste ultime, \underline{richieste} in una certa \textit{data} dal personale amministrativo e \underline{svolte} da \textcolor{olive}{\textbf{officine}} convenzionate in una determinata \textit{data}, riguardano uno specifico mezzo, possono essere richieste in via \textit{ordinaria} (dopo un certo tempo dall’ultima revisione) o \textit{straordinaria} (in caso di guasti) e comportano una determinata \textit{spesa}.
         Ci interessa anche avere una breve \textit{descrizione} dell’intervento.
-        Ogni vigile \underline{appartiene} ad una \textcolor{olive}{\textbf{squadra}}, la quale \underline{afferisce} ad un particolare amministrativo che la supervisiona.
-        Essa inoltre è caratterizzata da un \textit{codice} che la identifica, una \textit{denominazione operativa}, \textit{l’area di competenza} e \textit{la data di costituzione del gruppo}, per determinarne l’anzianità. \\
+        Ogni vigile può \underline{entrare a far parte} di una \textcolor{olive}{\textbf{squadra}}, la quale \underline{afferisce} ad un particolare amministrativo che la supervisiona.
+        Essa inoltre è caratterizzata da un \textit{codice} che la identifica, una \textit{denominazione operativa}, \textit{l’area di competenza} e \textit{la data di costituzione del gruppo}, per determinarne l’anzianità.\\
         \hline
     \end{tabular}
 \end{table}
@@ -36,7 +36,7 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi di carattere generale}} \\
         \hline
-        Il Corpo Nazionale dei Vigili del fuoco ha richiesto la progettazione di una base di dati relativa alla gestione operativa e amministrativa delle varie caserme dislocate nelle varie province e città italiane. \\
+
         \hline
     \end{tabular}
 \end{table}
@@ -45,9 +45,9 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
     \centering
     \begin{tabular}{| p{\textwidth} |}
         \hline
-        \multicolumn{1}{|c|}{\textbf{Frasi relative a Caserma}} \\
+        \multicolumn{1}{|c|}{\textbf{Frasi relative alla caserma}} \\
         \hline
-        Si vuole che ogni caserma sia identificata da un codice numerico univoco e siano specificati il suo indirizzo e un numero telefonico tramite il quale essa è raggiungibile. \\
+
         \hline
     \end{tabular}
 \end{table}
@@ -56,21 +56,9 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
     \centering
     \begin{tabular}{| p{\textwidth} |}
         \hline
-        \multicolumn{1}{|c|}{\textbf{Frasi relative a Dipendenti}} \\
+        \multicolumn{1}{|c|}{\textbf{Frasi relative ai dipendenti}} \\
         \hline
-        In primo luogo si rende necessario rappresentare i dipendenti rilevanti per il contesto: vigili, centralinisti e personale amministrativo.
-        Per ognuno di essi, si desidera memorizzare nome, cognome, stipendio percepito e caserma di riferimento. \\
-        \hline
-    \end{tabular}
-\end{table}
-
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{| p{\textwidth} |}
-        \hline
-        \multicolumn{1}{|c|}{\textbf{Frasi relative a Vigili}} \\
-        \hline
-        Per quanto concerne i vigili, essi apparterranno ad un determinato reparto e possiederanno uno specifico grado. \\
+        
         \hline
     \end{tabular}
 \end{table}
@@ -79,10 +67,9 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
     \centering
     \begin{tabular}{| p{\textwidth} |}
         \hline
-        \multicolumn{1}{|c|}{\textbf{Frasi relative a Centralinisti}} \\
+        \multicolumn{1}{|c|}{\textbf{Frasi relative ai vigili}} \\
         \hline
-        I centralinisti oltre ai dati comuni, devono avere registrati l'anno di assunzione e l'orario del turno lavorativo, in quanto considerati lavoratori part-time.
-        Il loro compito primario è ricevere le chiamate di emergenza. \\
+
         \hline
     \end{tabular}
 \end{table}
@@ -91,10 +78,9 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
     \centering
     \begin{tabular}{| p{\textwidth} |}
         \hline
-        \multicolumn{1}{|c|}{\textbf{Frasi relative a Chiamata}} \\
+        \multicolumn{1}{|c|}{\textbf{Frasi relative ai centralinisti}} \\
         \hline
-        Ogni chiamata è identificata in modo univoco da un codice e deve includere orario di inizio e fine, il numero telefonico del chiamante e la descrizione sintetica dell'emergenza.
-        Ogni chiamata può risolversi in due modi differenti: generare un singolo intervento o meno. \\
+
         \hline
     \end{tabular}
 \end{table}
@@ -103,10 +89,9 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
     \centering
     \begin{tabular}{| p{\textwidth} |}
         \hline
-        \multicolumn{1}{|c|}{\textbf{Frasi relative a Intervento}} \\
+        \multicolumn{1}{|c|}{\textbf{Frasi relative alle chiamate}} \\
         \hline
-        Di ogni intervento (identificato anch’esso tramite un codice univoco) si vuole tener traccia del suo tipo e della sua priorità nonché dell’orario di inizio (a partire dalla fine della chiamata) e di fine, con eventuale esito dell’operazione.
-        Ci interessa anche avere una breve descrizione dell’intervento. \\
+
         \hline
     \end{tabular}
 \end{table}
@@ -115,20 +100,9 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
     \centering
     \begin{tabular}{| p{\textwidth} |}
         \hline
-        \multicolumn{1}{|c|}{\textbf{Frasi relative a Mezzi}} \\
+        \multicolumn{1}{|c|}{\textbf{Frasi relative agli interventi}} \\
         \hline
-        A supporto dell’operazione, possono essere impiegati uno o più mezzi, descritti per classe (ad esempio: terrestre, aereo e marino), modello, anno di fabbricazione e data dell’ultima manutenzione effettuata. \\
-        \hline
-    \end{tabular}
-\end{table}
-
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{| p{\textwidth} |}
-        \hline
-        \multicolumn{1}{|c|}{\textbf{Frasi relative a Manutenzione e Officine}} \\
-        \hline
-        Queste ultime, richieste dal personale amministrativo e svolte da officine convenzionate in una determinata data, riguardano uno specifico mezzo, possono essere richieste in via ordinaria (dopo un certo tempo dall’ultima revisione) o straordinaria (in caso di guasti) e comportano una determinata spesa. \\
+        
         \hline
     \end{tabular}
 \end{table}
@@ -137,10 +111,31 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
     \centering
     \begin{tabular}{| p{\textwidth} |}
         \hline
-        \multicolumn{1}{|c|}{\textbf{Frasi relative a Squadra}} \\
+        \multicolumn{1}{|c|}{\textbf{Frasi relative ai mezzi}} \\
         \hline
-        Ogni vigile appartiene ad una squadra, la quale afferisce ad un particolare amministrativo che la supervisiona.
-        Essa inoltre è caratterizzata da un codice che la identifica, una denominazione operativa, l’area di competenza e la data di costituzione del gruppo, per determinarne l’anzianità. \\
+        
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{\textwidth} |}
+        \hline
+        \multicolumn{1}{|c|}{\textbf{Frasi relative alla manutenzione e alle officine}} \\
+        \hline
+
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| p{\textwidth} |}
+        \hline
+        \multicolumn{1}{|c|}{\textbf{Frasi relative alla squadra}} \\
+        \hline
+        
         \hline
     \end{tabular}
 \end{table}
@@ -172,7 +167,7 @@ A questo punto ci concentriamo sulla parte relativa a tutti gli aspetti di un in
 
 Infine, la parte amministrativa. Il personale amministrativo come già detto ha due ruoli:
 \begin{itemize}
-    \item Richiede le manutenzioni che verranno \textit{effettuate} da un'\textbf{officina} (che le realizza) su dei \textbf{mezzi} (modellati come entità), \textit{impiegati} nell’ambito degli interventi
+    \item \textit{Richiede} le manutenzioni che verranno \textit{effettuate} da un'\textbf{officina} (che le realizza) su dei \textbf{mezzi} (modellati come entità), \textit{impiegati} nell’ambito degli interventi
     \item È responsabile della squadra, a cui essa \textit{afferisce}
 \end{itemize}
 
@@ -184,5 +179,8 @@ A seguito di integrazione e della naturale modellazione di queste ultime tre rel
     \caption*{Schema 5}
 \end{figure}
 
-Una volta terminato lo scheletro di base, aggiungiamo gli attributi alle varie entità.
+Una volta terminato lo scheletro di base, aggiungiamo gli attributi alle varie entità e determiniamo le cardinalità delle partecipazioni. Lo schema risultante è il seguente:
+
+
+
 
