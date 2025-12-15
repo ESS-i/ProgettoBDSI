@@ -1,11 +1,12 @@
 \section{Progettazione Concettuale}
 \subsection{Analisi della richiesta}
+\definecolor{lightgrey}{cmyk}{0.01,0,0,0.33}
 
 \begin{table}[h!]
     \centering
     \begin{tabular}{| p{\textwidth} |}
         \hline
-        \multicolumn{1}{|c|}{\textbf{Caserme dei Vigili del Fuoco}} \\
+        \multicolumn{1}{|c|}{\textbf{Specifiche}} \\
         \hline
         Il Corpo Nazionale dei Vigili del fuoco ha richiesto la progettazione di una base di dati relativa alla gestione operativa e amministrativa delle varie caserme dislocate nelle varie province e città italiane.
         Si vuole che ogni \textcolor{olive}{\textbf{caserma}} sia identificata da un \textit{codice numerico univoco} e siano specificati il suo \textit{indirizzo} e un \textit{numero telefonico} tramite il quale essa è raggiungibile.
@@ -18,7 +19,7 @@
         Ogni chiamata può risolversi in due modi differenti: \underline{generare} un singolo \textcolor{olive}{\textbf{intervento}} o meno, che sarà \textit{assegnato} ad una squadra.
         Di ogni intervento si vuole tener traccia del suo \textit{tipo} e della sua \textit{priorità} nonché dell’\textit{orario di inizio} (a partire dalla fine della chiamata) e di \textit{fine}, con eventuale \textit{esito} dell’operazione.
         A supporto dell’operazione, possono essere \underline{impiegati} uno o più \textcolor{olive}{\textbf{mezzi}}, descritti per \textit{classe} (ad esempio: terrestre, aereo e marino), \textit{modello}, \textit{anno di fabbricazione} e \textit{data dell’ultima \textcolor{olive}{\textbf{manutenzione}} effettuata}.
-        Queste ultime, \underline{richieste} in una certa \textit{data} dal personale amministrativo e \underline{svolte} da \textcolor{olive}{\textbf{officine}} convenzionate in una determinata \textit{data}, riguardano uno specifico mezzo, possono essere richieste in via \textit{ordinaria} (dopo un certo tempo dall’ultima revisione) o \textit{straordinaria} (in caso di guasti) e comportano una determinata \textit{spesa}.
+        Queste ultime, \underline{richieste} in una certa \textit{data} dal personale amministrativo (che si caratterizza per \textit{livello funzionale},\textit{ruolo} e può avere o meno l'\textit{abilitazione alla firma} di documenti rilevanti) e \underline{svolte} da \textcolor{olive}{\textbf{officine}} convenzionate in una determinata \textit{data}, riguardano uno specifico mezzo, possono essere richieste in via \textit{ordinaria} (dopo un certo tempo dall’ultima revisione) o \textit{straordinaria} (in caso di guasti) e comportano una determinata \textit{spesa}.
         Ci interessa anche avere una breve \textit{descrizione} dell’intervento.
         Ogni vigile può \underline{entrare a far parte} di una \textcolor{olive}{\textbf{squadra}}, la quale \underline{afferisce} ad un particolare amministrativo che la supervisiona.
         Essa inoltre è caratterizzata da un \textit{codice} che la identifica, una \textit{denominazione operativa}, \textit{l’area di competenza} e \textit{la data di costituzione del gruppo}, per determinarne l’anzianità.\\
@@ -181,6 +182,153 @@ A seguito di integrazione e della naturale modellazione di queste ultime tre rel
 
 Una volta terminato lo scheletro di base, aggiungiamo gli attributi alle varie entità e determiniamo le cardinalità delle partecipazioni. Lo schema risultante è il seguente:
 
+\pagebreak
+\subsection{Entità coinvolte}
+Passiamo ora in rassegna quelle che sono le entità coinvolte, già \textcolor{olive}{\textbf{evidenziate}} nelle specifiche.
 
+\begin{table}[H]
+    \centering
+    % Uso tabularx per adattare la tabella alla larghezza del testo
+    \begin{tabularx}{\textwidth}{|l|X|X|}
+        \hline
+        \rowcolor{lightgrey}
+        \multicolumn{1}{|c|}{\textbf{Entità}} & \multicolumn{1}{c|}{\textbf{Descrizione}} & \multicolumn{1}{c|}{\textbf{Attributi}} \\
+        \hline
+        \textbf{Caserma} & Struttura operativa dei vigili del fuoco dislocata sul territorio & \textbf{Codice}, Indirizzo, Numero telefonico \\
+        \hline
+        \textbf{Dipendente} & Generalizzazione del personale che lavora nella caserma & \textbf{ID}, Nome, Cognome, Stipendio \\
+        \hline
+        \textbf{Vigile} & Personale operativo che interviene nelle emergenze & Grado, Reparto \\
+        \hline
+        \textbf{Centralinista} & Personale che riceve le chiamate di emergenza & Anno assunzione, Orario turno \\
+        \hline
+        \textbf{Personale Amministrativo} & Personale che gestisce gli aspetti burocratici e amministrativi, come supervisione di interventi e ordine di revisioni su mezzi & Mansione, Livello funzionale, Abilitazione firma  \\
+        \hline
+        \textbf{Chiamata} & Potenziale richiesta di intervento ricevuta dalla centrale operativa & \textbf{Codice}, Orario inizio, Orario fine, Numero chiamante, Descrizione \\
+        \hline
+        \textbf{Intervento} & Operazione di soccorso effettuata a seguito di una chiamata valida & \textbf{Codice} Tipo, Priorità, Orario inizio, Orario fine, Esito \\
+        \hline
+        \textbf{Squadra} & Gruppo di vigili che opera congiuntamente negli interventi & \textbf{Codice}, Denominazione operativa, Area competenza, Data costituzione \\
+        \hline
+        \textbf{Mezzo} & Veicolo o attrezzatura utilizzata negli interventi & \textbf{Codice}, Classe, Modello, Anno fabbricazione, Data ultima revisione \\
+        \hline
+        \textbf{Manutenzione} & Attività di controllo e riparazione effettuata sui mezzi & Data richiesta, Data svolgimento, Tipo (ordinaria/straordinaria), Spesa, Descrizione \\
+        \hline
+        \textbf{Officina} & Struttura convenzionata che effettua le manutenzioni & \textbf{Nome, Indirizzo, Telefono} \\
+        \hline
+    \end{tabularx}
+\end{table}
 
+In \textbf{grassetto} abbiamo riportato gli attributi che identificano univocamente le varie entità, mentre eventuali identificazioni esterne (si veda lo schema E-R) non sono state riportate.
 
+\subsection{Relazioni e regole di vincolo}
+Di seguito riportiamo le associazioni individuate tra le entità, con le relative cardinalità derivate dall'analisi delle specifiche e i vari vincoli di integrità individuati.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabularx}{\textwidth}{|p{3.5cm}|X|X|}
+        \hline
+        \rowcolor{lightgrey} 
+        \multicolumn{1}{|c|}{\textbf{Relazione}} & \multicolumn{1}{c|}{\textbf{Entità e Cardinalità}} & \multicolumn{1}{c|}{\textbf{Descrizione da Specifiche}} \\
+        \hline
+        
+        \textbf{LAVORARE} & \textbf{Caserma} (1,N) \newline \textbf{Dipendente} (1,1) & Ogni dipendente lavora in una specifica caserma di riferimento; una caserma ha molti dipendenti. \\
+        \hline
+        
+        \textbf{RISPONDE} & \textbf{Centralinista} (0,N) \newline \textbf{Chiamata} (1,1) & Il compito del centralinista è ricevere le chiamate. Ogni chiamata è gestita da un solo operatore. \\
+        \hline
+        
+        \textbf{GENERA} & \textbf{Chiamata} (0,1) \newline \textbf{Intervento} (1,1) & Una chiamata può risolversi in un intervento o meno (0 o 1). Un intervento nasce sempre da una chiamata specifica (1). \\
+        \hline
+        
+        \textbf{ASSEGNATO A} & \textbf{Intervento} (1,1) \newline \textbf{Squadra} (0,N) & L'intervento viene assegnato ad una squadra. Una squadra può effettuare più interventi nel tempo. \\
+        \hline
+        
+        \textbf{IMPIEGATO IN} & \textbf{Mezzo} (0,N) \newline \textbf{Intervento} (0,N) & A supporto dell'operazione possono essere impiegati uno o più mezzi. Un mezzo può essere usato in più interventi storici. \\
+        \hline
+        
+        \textbf{APPARTENENZA} & \textbf{Vigile} (0,1) \newline \textbf{Squadra} (1,N) & Ogni vigile può far parte al massimo di una squadra (V14). Una squadra è composta da più vigili (V15). \\
+        \hline
+        
+        \textbf{AFFERENZA} & \textbf{Squadra} (1,1) \newline \textbf{Amministrativo} (0,N) & La squadra afferisce ad un particolare amministrativo che la supervisiona. \\
+        \hline
+        
+        \textbf{RICHIEDE} & \textbf{Amministrativo} (0,N) \newline \textbf{Manutenzione} (1,1) & Le manutenzioni sono richieste dal personale amministrativo. Ogni richiesta parte da un solo amministrativo. \\
+        \hline
+        
+        \textbf{EFFETTUATA SU} & \textbf{Manutenzione} (1,1) \newline \textbf{Mezzo} (0,N) & Le manutenzioni riguardano uno specifico mezzo. Un mezzo subisce varie manutenzioni nel tempo. \\
+        \hline
+        
+        \textbf{REALIZZATE DA} & \textbf{Manutenzione} (1,1) \newline \textbf{Officina} (0,N) & Le manutenzioni sono svolte da officine convenzionate. Un'officina può svolgere più manutenzioni. \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\newpage
+
+% Calcolo dinamico della larghezza: Larghezza testo - 2.5cm (per ID) - spaziatura
+\begin{longtable}{|c|p{\dimexpr\textwidth-3cm\relax}|}
+    \hline
+    \rowcolor{lightgrey}
+    \textbf{ID} & \textbf{Vincolo} \\
+    \hline
+    \endfirsthead
+    
+    \hline
+    \rowcolor{lightgrey}
+    \textbf{ID} & \textbf{Vincolo (continua)} \\
+    \hline
+    \endhead
+    
+    \hline
+    \endfoot
+
+    V1 & L'orario di fine di una chiamata deve essere successivo all'orario di inizio \\
+    \hline
+    V2 & L'orario di fine di un intervento deve essere successivo all'orario di inizio \\
+    \hline
+    V3 & L'orario di inizio di un intervento deve essere successivo all'orario di fine della chiamata che lo ha generato \\
+    \hline
+    V4 & La data di svolgimento della manutenzione deve essere successiva alla data di richiesta \\
+    \hline
+    V5 & L'anno di fabbricazione di un mezzo deve essere antecedente o uguale all'anno corrente \\
+    \hline
+    V6 & L'anno di assunzione di un centralinista deve essere antecedente o uguale all'anno corrente \\
+    \hline
+    V7 & La data di costituzione di una squadra deve essere antecedente o uguale alla data corrente \\
+    \hline
+    V8 & La data dell'ultima manutenzione di un mezzo deve essere antecedente o uguale alla data corrente \\
+    \hline
+    V9 & La priorità di un intervento deve essere compresa in un range definito (es. 1-5) \\
+    \hline
+    V10 & Il tipo di manutenzione deve essere "ordinaria" o "straordinaria" \\
+    \hline
+    V11 & La classe di un mezzo deve appartenere a un insieme predefinito (terrestre, aereo, marino) \\
+    \hline
+    V12 & Lo stipendio di un dipendente deve essere un valore positivo \\
+    \hline
+    V13 & La spesa per una manutenzione deve essere un valore positivo \\
+    \hline
+    V14 & Un vigile può appartenere a una sola squadra alla volta \\
+    \hline
+    V15 & Una squadra deve avere almeno un vigile assegnato \\
+    \hline
+    V16 & Ogni Caserma deve avere almeno un Dipendente. \\
+    \hline
+    V17 & Ogni Dipendente deve lavorare in una e una sola Caserma. \\
+    \hline
+    V18 & Ogni Chiamata deve essere ricevuta da uno e un solo Centralinista. \\
+    \hline
+    V19 & Ogni Intervento deve essere assegnato ad una e una sola Squadra. \\
+    \hline
+    V20 & Ogni Squadra deve essere supervisionata da uno e un solo Personale Amministrativo. \\
+    \hline
+    V21 & Una Manutenzione deve riguardare uno e un solo Mezzo. \\
+    \hline
+    V22 & Ogni Mezzo impiegato in un Intervento deve essere disponibile prima dell'inizio dell'Intervento stesso. \\
+    \hline
+    V23 & Ogni Dipendente deve essere esattamente uno tra Vigile, Centralinista o Personale Amministrativo (Generalizzazione Totale e Disgiunta). \\
+    \hline
+    V24 & Un Mezzo non può essere impiegato contemporaneamente in due Interventi distinti. \\
+    \hline
+\end{longtable}
