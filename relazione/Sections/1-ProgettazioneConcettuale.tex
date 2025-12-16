@@ -11,17 +11,16 @@
         Il Corpo Nazionale dei Vigili del fuoco ha richiesto la progettazione di una base di dati relativa alla gestione operativa e amministrativa delle varie caserme dislocate nelle varie province e città italiane.
         Si vuole che ogni \textcolor{olive}{\textbf{caserma}} sia identificata da un \textit{codice numerico univoco} e siano specificati il suo \textit{indirizzo} e un \textit{numero telefonico} tramite il quale essa è raggiungibile.
         In primo luogo si rende necessario rappresentare i \textcolor{olive}{\textbf{dipendenti}} rilevanti per il contesto: \textcolor{olive}{\textbf{vigili}}, \textcolor{olive}{\textbf{centralinisti}} e \textcolor{olive}{\textbf{personale amministrativo}}.
-        Per ognuno di essi, si desidera memorizzare \textit{nome}, \textit{cognome}, stipendio percepito e caserma di riferimento.
-        Per quanto concerne i vigili, essi \underline{apparterranno} ad un determinato reparto e possiederanno uno specifico \textit{grado}.
-        I centralinisti oltre ai dati comuni, devono avere registrati \textit{l'anno di assunzione} e \textit{l'orario del turno lavorativo}, in quanto considerati lavoratori part-time.
+        Per ognuno di essi, si desidera memorizzare \textit{nome}, \textit{cognome}, \textit{stipendio} percepito e \textit{caserma di riferimento}.
+        Per quanto concerne i vigili, ognuno di essi possiederà uno specifico \textit{grado}; i centralinisti, oltre ai dati comuni, devono avere registrati \textit{l'anno di assunzione} e \textit{l'orario del turno lavorativo}, in quanto considerati lavoratori part-time.
         Il loro compito primario è \underline{ricevere} le \textcolor{olive}{\textbf{chiamate}} di emergenza.
         Ogni chiamata è identificata in modo univoco da un \textit{codice} e deve includere \textit{orario di inizio e fine}, il \textit{numero telefonico del chiamante} e la \textit{descrizione} sintetica dell'emergenza.
-        Ogni chiamata può risolversi in due modi differenti: \underline{generare} un singolo \textcolor{olive}{\textbf{intervento}} o meno, che sarà \textit{assegnato} ad una squadra.
+        Ogni chiamata può risolversi in due modi differenti: \underline{generare} un singolo \textcolor{olive}{\textbf{intervento}} o meno, che sarà \textit{assegnato} ad almeno una \textcolor{olive}{\textbf{squadra}}.
         Di ogni intervento si vuole tener traccia del suo \textit{tipo} e della sua \textit{priorità} nonché dell’\textit{orario di inizio} (a partire dalla fine della chiamata) e di \textit{fine}, con eventuale \textit{esito} dell’operazione.
-        A supporto dell’operazione, possono essere \underline{impiegati} uno o più \textcolor{olive}{\textbf{mezzi}}, descritti per \textit{classe} (ad esempio: terrestre, aereo e marino), \textit{modello}, \textit{anno di fabbricazione} e \textit{data dell’ultima \textcolor{olive}{\textbf{manutenzione}} effettuata}.
-        Queste ultime, \underline{richieste} in una certa \textit{data} dal personale amministrativo (che si caratterizza per \textit{livello funzionale},\textit{ruolo} e può avere o meno l'\textit{abilitazione alla firma} di documenti rilevanti) e \underline{svolte} da \textcolor{olive}{\textbf{officine}} convenzionate in una determinata \textit{data}, riguardano uno specifico mezzo, possono essere richieste in via \textit{ordinaria} (dopo un certo tempo dall’ultima revisione) o \textit{straordinaria} (in caso di guasti) e comportano una determinata \textit{spesa}.
+        A supporto dell’operazione, possono essere \underline{impiegati} uno o più \textcolor{olive}{\textbf{mezzi}}, descritti per \textit{classe} (ad esempio: terrestre, aereo e marino), \textit{modello}, \textit{anno di fabbricazione} e \textit{data dell’ultima \textcolor{olive}{\textbf{manutenzione}}} effettuata.
+        Queste ultime, \underline{richieste} in una certa \textit{data} dal personale amministrativo (che si caratterizza per \textit{livello funzionale}, \textit{ruolo} e può avere o meno l'\textit{abilitazione alla firma} necessaria per la richiesta di manutenzioni) e \underline{realizzate} da \textcolor{olive}{\textbf{officine}} \underline{convenzionate} in una determinata \textit{data}, riguardano uno specifico mezzo, possono essere richieste in via \textit{ordinaria} (dopo un certo tempo dall’ultima revisione) o \textit{straordinaria} (in caso di guasti) e comportano una determinata \textit{spesa}.
         Ci interessa anche avere una breve \textit{descrizione} dell’intervento.
-        Ogni vigile può \underline{entrare a far parte} di una \textcolor{olive}{\textbf{squadra}}, la quale \underline{afferisce} ad un particolare amministrativo che la supervisiona.
+        Ogni vigile può \underline{entrare a far parte} di una squadra (gruppo di almeno 3 vigili), la quale \underline{afferisce} ad un particolare amministrativo che la supervisiona.
         Essa inoltre è caratterizzata da un \textit{codice} che la identifica, una \textit{denominazione operativa}, \textit{l’area di competenza} e \textit{la data di costituzione del gruppo}, per determinarne l’anzianità.\\
         \hline
     \end{tabular}
@@ -37,7 +36,7 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi di carattere generale}} \\
         \hline
-
+        Il Corpo Nazionale dei Vigili del fuoco ha richiesto la progettazione di una base di dati relativa alla gestione operativa e amministrativa delle varie caserme dislocate nelle varie province e città italiane. \\
         \hline
     \end{tabular}
 \end{table}
@@ -48,7 +47,7 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi relative alla caserma}} \\
         \hline
-
+        Si vuole che ogni \textcolor{olive}{\textbf{caserma}} sia identificata da un \textit{codice numerico univoco} e siano specificati il suo \textit{indirizzo} e un \textit{numero telefonico} tramite il quale essa è raggiungibile. \\
         \hline
     \end{tabular}
 \end{table}
@@ -59,7 +58,8 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi relative ai dipendenti}} \\
         \hline
-        
+        In primo luogo si rende necessario rappresentare i \textcolor{olive}{\textbf{dipendenti}} rilevanti per il contesto: \textcolor{olive}{\textbf{vigili}}, \textcolor{olive}{\textbf{centralinisti}} e \textcolor{olive}{\textbf{personale amministrativo}}. \\
+        Per ognuno di essi, si desidera memorizzare \textit{nome}, \textit{cognome}, \textit{stipendio} percepito e \textit{caserma di riferimento}. \\
         \hline
     \end{tabular}
 \end{table}
@@ -70,7 +70,8 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi relative ai vigili}} \\
         \hline
-
+        Per quanto concerne i vigili, ognuno di essi possiederà uno specifico \textit{grado}. \\
+        Ogni vigile può \underline{entrare a far parte} di una squadra (gruppo di almeno 3 vigili). \\
         \hline
     \end{tabular}
 \end{table}
@@ -81,7 +82,8 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi relative ai centralinisti}} \\
         \hline
-
+        I centralinisti, oltre ai dati comuni, devono avere registrati \textit{l'anno di assunzione} e \textit{l'orario del turno lavorativo}, in quanto considerati lavoratori part-time. \\
+        Il loro compito primario è \underline{ricevere} le \textcolor{olive}{\textbf{chiamate}} di emergenza. \\
         \hline
     \end{tabular}
 \end{table}
@@ -92,7 +94,8 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi relative alle chiamate}} \\
         \hline
-
+        Ogni chiamata è identificata in modo univoco da un \textit{codice} e deve includere \textit{orario di inizio e fine}, il \textit{numero telefonico del chiamante} e la \textit{descrizione} sintetica dell'emergenza. \\
+        Ogni chiamata può risolversi in due modi differenti: \underline{generare} un singolo \textcolor{olive}{\textbf{intervento}} o meno. \\
         \hline
     \end{tabular}
 \end{table}
@@ -103,7 +106,9 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi relative agli interventi}} \\
         \hline
-        
+        Ogni chiamata può risolversi in due modi differenti: \underline{generare} un singolo \textcolor{olive}{\textbf{intervento}} o meno, che sarà \textit{assegnato} ad almeno una \textcolor{olive}{\textbf{squadra}}. \\
+        Di ogni intervento si vuole tener traccia del suo \textit{tipo} e della sua \textit{priorità} nonché dell’\textit{orario di inizio} (a partire dalla fine della chiamata) e di \textit{fine}, con eventuale \textit{esito} dell’operazione. \\
+        A supporto dell’operazione, possono essere \underline{impiegati} uno o più \textcolor{olive}{\textbf{mezzi}}. \\
         \hline
     \end{tabular}
 \end{table}
@@ -114,7 +119,7 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi relative ai mezzi}} \\
         \hline
-        
+        I \textcolor{olive}{\textbf{mezzi}}, descritti per \textit{classe} (ad esempio: terrestre, aereo e marino), \textit{modello}, \textit{anno di fabbricazione} e \textit{data dell’ultima \textcolor{olive}{\textbf{manutenzione}}} effettuata. \\
         \hline
     \end{tabular}
 \end{table}
@@ -125,7 +130,9 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi relative alla manutenzione e alle officine}} \\
         \hline
-
+        Queste ultime, \underline{richieste} in una certa \textit{data} dal personale amministrativo (che si caratterizza per \textit{livello funzionale}, \textit{ruolo} e può avere o meno l'\textit{abilitazione alla firma} necessaria per la richiesta di manutenzioni) e \underline{realizzate} da \textcolor{olive}{\textbf{officine}} \underline{convenzionate} in una determinata \textit{data}. \\
+        Riguardano uno specifico mezzo, possono essere richieste in via \textit{ordinaria} (dopo un certo tempo dall’ultima revisione) o \textit{straordinaria} (in caso di guasti) e comportano una determinata \textit{spesa}. \\
+        Ci interessa anche avere una breve \textit{descrizione} dell’intervento. \\
         \hline
     \end{tabular}
 \end{table}
@@ -136,7 +143,8 @@ gruppi di frasi omogenee, per rendere la progettazione più semplice:
         \hline
         \multicolumn{1}{|c|}{\textbf{Frasi relative alla squadra}} \\
         \hline
-        
+        Ogni vigile può \underline{entrare a far parte} di una squadra (gruppo di almeno 3 vigili), la quale \underline{afferisce} ad un particolare amministrativo che la supervisiona. \\
+        Essa inoltre è caratterizzata da un \textit{codice} che la identifica, una \textit{denominazione operativa}, \textit{l’area di competenza} e \textit{la data di costituzione del gruppo}, per determinarne l’anzianità. \\
         \hline
     \end{tabular}
 \end{table}
@@ -226,40 +234,32 @@ Di seguito riportiamo le associazioni individuate tra le entità, con le relativ
 
 \begin{table}[h!]
     \centering
-    \begin{tabularx}{\textwidth}{|p{3.5cm}|X|X|}
+    \begin{tabularx}{\textwidth}{|p{3.5cm}|p{3.5cm}|X|}
         \hline
-        \rowcolor{lightgrey} 
-        \multicolumn{1}{|c|}{\textbf{Relazione}} & \multicolumn{1}{c|}{\textbf{Entità e Cardinalità}} & \multicolumn{1}{c|}{\textbf{Descrizione da Specifiche}} \\
+        \rowcolor{lightgrey}
+        \multicolumn{1}{|c|}{\textbf{Relazione}} & \multicolumn{1}{c|}{\textbf{Entità e Cardinalità}} & \multicolumn{1}{c|}{\textbf{Descrizione breve}} \\
         \hline
-        
-        \textbf{LAVORARE} & \textbf{Caserma} (1,N) \newline \textbf{Dipendente} (1,1) & Ogni dipendente lavora in una specifica caserma di riferimento; una caserma ha molti dipendenti. \\
+        \textbf{APPARTENENZA} & \textbf{Vigile} (1,1) \newline \textbf{Squadra} (3,N) & Un vigile appartiene ad una singola squadra, una squadra deve essere fatta da almeno 3 vigili \\
         \hline
-        
-        \textbf{RISPONDE} & \textbf{Centralinista} (0,N) \newline \textbf{Chiamata} (1,1) & Il compito del centralinista è ricevere le chiamate. Ogni chiamata è gestita da un solo operatore. \\
+        \textbf{ASSEGNATO A} & \textbf{Squadra} (1,1) \newline \textbf{Intervento} (1,N) & Una squadra può essere assegnata a solo un intervento, ma un intervento può essere assegnato a più squadre \\
         \hline
-        
-        \textbf{GENERA} & \textbf{Chiamata} (0,1) \newline \textbf{Intervento} (1,1) & Una chiamata può risolversi in un intervento o meno (0 o 1). Un intervento nasce sempre da una chiamata specifica (1). \\
+        \textbf{IMPIEGATO IN} & \textbf{Intervento} (1,N) \newline \textbf{Mezzo} (1,1) & In un intervento possono essere impiegati più mezzi, mentre un mezzo sarà sicuramente impiegato in un intervento \\
         \hline
-        
-        \textbf{ASSEGNATO A} & \textbf{Intervento} (1,1) \newline \textbf{Squadra} (0,N) & L'intervento viene assegnato ad una squadra. Una squadra può effettuare più interventi nel tempo. \\
+        \textbf{EFFETTUATA SU} & \textbf{Manutenzione} (1,1) \newline \textbf{Mezzo} (1,1) & La manutenzione riguarda un singolo mezzo e sul mezzo viene effettuata una singola manutenzione \\
         \hline
-        
-        \textbf{IMPIEGATO IN} & \textbf{Mezzo} (0,N) \newline \textbf{Intervento} (0,N) & A supporto dell'operazione possono essere impiegati uno o più mezzi. Un mezzo può essere usato in più interventi storici. \\
+        \textbf{REALIZZATE DA} & \textbf{Manutenzione} (1,1) \newline \textbf{Officina} (0,N) & Una manutenzione è realizzata da una sola officina, un'officina può effettuare più manutenzioni o nessuna \\
         \hline
-        
-        \textbf{APPARTENENZA} & \textbf{Vigile} (0,1) \newline \textbf{Squadra} (1,N) & Ogni vigile può far parte al massimo di una squadra (V14). Una squadra è composta da più vigili (V15). \\
+        \textbf{RICHIEDE} & \textbf{Manutenzione} (1,1) \newline \textbf{Amministrativo} (0,N) & Un amministrativo può eventualmente (se autorizzato) richiedere una o più manutenzioni. Una manutenzione può essere richiesta da un solo amministrativo \\
         \hline
-        
-        \textbf{AFFERENZA} & \textbf{Squadra} (1,1) \newline \textbf{Amministrativo} (0,N) & La squadra afferisce ad un particolare amministrativo che la supervisiona. \\
+        \textbf{AFFERENZA} & \textbf{Squadra} (1,1) \newline \textbf{Amministrativo} (0,N) & Una squadra deve per forza avere un solo amministrativo che ne è responsabile. Un amministrativo può gestire anche più squadre \\
         \hline
-        
-        \textbf{RICHIEDE} & \textbf{Amministrativo} (0,N) \newline \textbf{Manutenzione} (1,1) & Le manutenzioni sono richieste dal personale amministrativo. Ogni richiesta parte da un solo amministrativo. \\
+        \textbf{RICEVE} & \textbf{Centralinista} (0,N) \newline \textbf{Chiamata} (1,1) & Ogni chiamata è ricevuta da uno e un solo centralinista, un centralinista può ricevere zero o molte chiamate \\
         \hline
-        
-        \textbf{EFFETTUATA SU} & \textbf{Manutenzione} (1,1) \newline \textbf{Mezzo} (0,N) & Le manutenzioni riguardano uno specifico mezzo. Un mezzo subisce varie manutenzioni nel tempo. \\
+        \textbf{GENERA} & \textbf{Chiamata} (0,1) \newline \textbf{Intervento} (1,1) & Una chiamata può eventualmente generare un intervento. Un intervento è necessariamente generato da una singola chiamata \\
         \hline
-        
-        \textbf{REALIZZATE DA} & \textbf{Manutenzione} (1,1) \newline \textbf{Officina} (0,N) & Le manutenzioni sono svolte da officine convenzionate. Un'officina può svolgere più manutenzioni. \\
+        \textbf{LAVORARE} & \textbf{Dipendenti} (1,1) \newline \textbf{Caserma} (1,N) & In una caserma lavora almeno 1 dipendente, un dipendente lavora in una sola caserma. \\
+        \hline
+        \textbf{CONVENZIONATA} & \textbf{Caserma} (1,N) \newline \textbf{Officina} (1,N) & Una caserma è convenzionata con almeno 1 officina, un officina è convenzionata con almeno una caserma \\
         \hline
     \end{tabularx}
 \end{table}
@@ -330,5 +330,5 @@ Di seguito riportiamo le associazioni individuate tra le entità, con le relativ
     V23 & Ogni Dipendente deve essere esattamente uno tra Vigile, Centralinista o Personale Amministrativo (Generalizzazione Totale e Disgiunta). \\
     \hline
     V24 & Un Mezzo non può essere impiegato contemporaneamente in due Interventi distinti. \\
-    \hline
+        \hline
 \end{longtable}
