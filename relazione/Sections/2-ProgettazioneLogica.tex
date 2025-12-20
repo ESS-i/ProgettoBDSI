@@ -1,0 +1,169 @@
+\section{Progettazione Logica}
+
+In questa fase si effettua la riorganizzazione dello schema concettuale per derivare il modello logico. Si procede analizzando le prestazioni per valutare l'opportunità di introdurre o mantenere ridondanze, per poi passare alla ristrutturazione dello schema e alla traduzione finale verso il modello relazionale.
+
+\subsection{Analisi delle prestazioni}
+L'analisi delle prestazioni ha l'obiettivo di verificare se lo schema concettuale è in grado di supportare il carico applicativo previsto in modo efficiente. Questo studio si basa sulla stima dei volumi dei dati e sulla frequenza delle operazioni principali.
+
+\subsubsection{Tavola dei volumi}
+Si ipotizza uno scenario operativo relativo a un comando provinciale o regionale di medie dimensioni. I volumi stimati per le entità (E) e le associazioni (R) sono riportati nella tabella seguente:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|r|}
+        \hline
+        \textbf{Concetto} & \textbf{Tipo} & \textbf{Volume stimato} \\
+        \hline
+        Caserma & E & 20 \\
+        \hline
+        Dipendente & E & 1.000 \\
+        \hline
+        Squadra & E & 150 \\
+        \hline
+        Mezzo & E & 200 \\
+        \hline
+        Chiamata & E & 50.000 (annui) \\
+        \hline
+        Intervento & E & 40.000 (annui) \\
+        \hline
+        Manutenzione & E & 2.000 (storico) \\
+        \hline
+        Lavorare & R & 1.000 \\
+        \hline
+        Appartenenza & R & 800 \\
+        \hline
+        Effettuata Su & R & 2.000 \\
+        \hline
+        Impiegato In & R & 100.000 (storico) \\
+        \hline
+    \end{tabular}
+    \label{tab:volumi}
+\end{table}
+
+\subsubsection{Descrizione del carico applicativo}
+Sulla base dei requisiti, sono state individuate alcune operazioni importanti che il sistema deve effettuare in maniera veloce. Le riportiamo di seguito:
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|c|X|c|c|}
+        \hline
+        \textbf{Op.} & \textbf{Descrizione} & \textbf{Tipo} & \textbf{Freq. (giorno)} \\
+        \hline
+        O1 & \textbf{Ricezione chiamata:} Inserimento dei dati di una nuova chiamata di emergenza da parte del centralinista. & Scrittura & 150 \\
+        \hline
+        O2 & \textbf{Apertura di un intervento:} Creazione di un nuovo intervento e assegnazione della squadra operativa. & Scrittura & 120 \\
+        \hline
+        O3 & \textbf{Verifica idoneità di un mezzo:} Verifica della data dell'ultima revisione per confermare che un mezzo sia a norma e impiegabile in sicurezza. & Lettura & 500 \\
+        \hline
+        O4 & \textbf{Registrazione Manutenzione:} Inserimento dei dati relativi a una manutenzione appena conclusa per un mezzo. & Scrittura & 5 \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\subsubsection{Analisi delle ridondanze}
+Dall'analisi dello schema concettuale sono emerse alcune potenziali ridondanze, che dopo una veloce analisi valuteremo se lasciare o meno.
+
+\paragraph{Ridondanza 1: DataUltimaManut (su Mezzo)} \mbox{} \\
+L'attributo \textit{DataUltimaManut} nell'entità \textit{Mezzo} è derivabile, in quanto corrisponde al valore massimo della \textit{DataSvolg} tra tutte le istanze di \textit{Manutenzione} collegate a quel mezzo tramite la relazione \textit{Effettuata Su}.
+
+Confrontiamo i costi delle operazioni coinvolte (O3 e O4) assumendo che il costo di una scrittura ($S$) sia doppio rispetto a una lettura ($L$), ovvero $1S = 2L$. Si assume inoltre che ogni mezzo abbia uno storico medio di 10 manutenzioni passate.
+
+\vspace{0.3cm}
+\textbf{Scenario A: Presenza della ridondanza} \\
+L'attributo è memorizzato direttamente nel \textit{Mezzo}.
+\begin{itemize}
+    \item \textbf{Op. O3 (Lettura):} Accesso diretto all'entità Mezzo.
+    \item \textbf{Op. O4 (Scrittura):} Richiede l'inserimento della manutenzione, della relazione e l'aggiornamento dell'attributo nel mezzo.
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Operazione} & \textbf{Accessi} & \textbf{Costo unitario} & \textbf{Costo Totale} \\
+        \hline
+        O3 (Verifica Mezzo) & 1 L & $1L$ & $500 \times 1L = 500L$ \\
+        \hline
+        O4 (Reg. Manutenzione) & 3 S & $6L$ & $5 \times 6L = 30L$ \\
+        \hline
+        \multicolumn{3}{|r|}{\textbf{Totale giornaliero}} & \textbf{530 L} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+\textbf{Scenario B: Assenza della ridondanza} \\
+Il dato deve essere calcolato leggendo lo storico.
+\begin{itemize}
+    \item \textbf{Op. O3 (Lettura):} Accesso al mezzo, alla relazione (ricordiamo che c'è una media di 10 manutenzioni per mezzo) e scansione delle manutenzioni per trovare la data massima. Accessi stimati: 1 (Mezzo) + 10 (Relazione) + 10 (Manutenzione) = 21 accessi in lettura.
+    \item \textbf{Op. O4 (Scrittura):} Inserimento della manutenzione e della relazione (2 accessi in scrittura).
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Operazione} & \textbf{Accessi} & \textbf{Costo unitario} & \textbf{Costo Totale} \\
+        \hline
+        O3 (Verifica Mezzo) & 21 L & $21L$ & $500 \times 21L = 10.500L$ \\
+        \hline
+        O4 (Reg. Manutenzione) & 2 S & $4L$ & $5 \times 4L = 20L$ \\
+        \hline
+        \multicolumn{3}{|r|}{\textbf{Totale giornaliero}} & \textbf{10.520 L} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Il mantenimento della ridondanza garantisce un risparmio di circa 10.000 accessi giornalieri e, soprattutto, assicura tempi di risposta immediati durante le fasi critiche di emergenza. Si decide di \textcolor{green}{\textbf{mantenere l'attributo ridondante}}.
+
+\paragraph{Altre ridondanze mantenute} \mbox{} \\
+Oltre al caso analizzato, si decide di mantenere le seguenti ridondanze per motivi di efficienza e stabilità del dato:
+\begin{itemize}
+    \item \textbf{Stipendio (su Dipendente):} Potremmo rendere il calcolo più intelligente, calcolando eventuali bonus legati a grado e anzianità ma non essendoci specifiche al riguardo \textcolor{green}{si mantiene come attributo}.
+    \item \textbf{OraInizioInt (su Intervento):} Coincide con \textit{OraFineChiam} della chiamata che lo ha generato. Non è particolarmente oneroso ottenere la fine della chiamata, pertanto \textcolor{red}{rimuoviamo l'attributo}.
+\end{itemize}
+\newpage
+%TODO: schema aggiornato
+
+\subsection{Ristrutturazione dello schema E-R}
+In questa fase si apportano modifiche allo schema concettuale al fine di ottimizzarlo per il modello relazionale, basandosi sulle valutazioni prestazionali e sui volumi di dati stimati.
+
+\subsubsection{Eliminazione delle generalizzazioni}
+Lo schema presenta una generalizzazione \textbf{totale e sovrapposta} nell'entità \textit{Dipendente}, che si specializza in \textit{Vigile}, \textit{Centralinista} e \textit{Personale Amministrativo}.
+La decisione che prendiamo è quella di creare un'unica entità \textit{Dipendente} che conterrà, oltre agli attributi comuni, anche quelli specifici (\textit{GradoVigile, RepartoVigile, AnnoAssunzione, OrarioTurno, MansioneAmm, LivFunzionale, AbilitFirma}) che assumeranno valore NULL qualora il dipendente non ricopra quel ruolo specifico.
+Vengono introdotti degli attributi booleani per indicare i ruoli ricoperti. Le relazioni specifiche (\textit{Appartenenza, Riceve, Richiede, Afferenza}) verranno collegate direttamente all'entità \textit{Dipendente}.
+
+\subsubsection{Partizionamento ed eliminazione attributi multivalore}
+\begin{itemize}
+    \item \textbf{Associazione GENERA (Chiamata - Intervento):} Poiché abbiamo rimosso l'attributo ridondante \textit{OraInizioInt} dall'Intervento (in quanto coincidente con \textit{OraFineChiam}), l'accesso all'Intervento richiederà spesso il join con la Chiamata per recuperare le informazioni temporali. Tuttavia, essendo concetti logicamente distinti con cardinalità (0,1), manteniamo le entità separate. La relazione 1:1 verrà tradotta portando la chiave di \textit{Chiamata} dentro \textit{Intervento}.
+    \item \textbf{Attributi multivalore:} Non sono presenti attributi multivalore complessi che richiedano la creazione di nuove entità.
+\end{itemize}
+
+\subsubsection{Scelta degli identificatori primari}
+Per ogni entità dello schema ristrutturato, definiamo l'identificatore principale che verrà utilizzato nel modello relazionale. Dove possibile, si preferisce l'utilizzo di codici univoci o identificatori surrogati (ID) rispetto a chiavi composte da stringhe, per migliorare l'efficienza degli indici.
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|l|l|X|}
+        \hline
+        \rowcolor{lightgrey}
+        \textbf{Entità} & \textbf{Identificatore scelto} & \textbf{Motivazione} \\
+        \hline
+        Caserma & \textit{CodCaserma} & Identificatore numerico univoco già presente nelle specifiche. \\
+        \hline
+        Dipendente & \textit{CodDip} & Introdotto per gestire univocamente il personale. \\
+        \hline
+        Chiamata & \textit{CodChiam} & Identificatore univoco della chiamata. \\
+        \hline
+        Intervento & \textit{CodIntervento} & Identificatore univoco dell'intervento (indipendente dalla chiamata). \\
+        \hline
+        Squadra & \textit{CodSquad} & Identificatore univoco della squadra. \\
+        \hline
+        Mezzo & \textit{CodMezzo} & Identificatore univoco del mezzo. \\
+        \hline
+        Manutenzione & \textit{CodManut} & Lo avevamo già preferito rispetto all'identificazione esterna per semplicità. \\
+        \hline
+        Officina & \textit{CodOfficina} & \textbf{Nuovo identificatore.} Nello schema concettuale l'officina era identificata da attributi anagrafici (NomeOff, IndOff). Si introduce un ID numerico per efficienza nelle chiavi esterne. \\
+        \hline
+    \end{tabularx}
+\end{table}
