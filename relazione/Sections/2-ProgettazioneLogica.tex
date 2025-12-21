@@ -134,11 +134,8 @@ La decisione che prendiamo è quella di creare un'unica entità \textit{Dipenden
 Vengono introdotti degli attributi booleani per indicare i ruoli ricoperti. Le relazioni specifiche (\textit{Appartenenza, Riceve, Richiede, Afferenza}) verranno collegate direttamente all'entità \textit{Dipendente}.
 
 \subsubsection{Partizionamento ed eliminazione attributi multivalore}
-\begin{itemize}
-    \item \textbf{Associazione GENERA (Chiamata - Intervento):} Poiché abbiamo rimosso l'attributo ridondante \textit{OraInizioInt} dall'Intervento (in quanto coincidente con \textit{OraFineChiam}), l'accesso all'Intervento richiederà spesso il join con la Chiamata per recuperare le informazioni temporali. Tuttavia, essendo concetti logicamente distinti con cardinalità (0,1), manteniamo le entità separate. La relazione 1:1 verrà tradotta portando la chiave di \textit{Chiamata} dentro \textit{Intervento}.
-    \item \textbf{Attributi multivalore:} Non sono presenti attributi multivalore complessi che richiedano la creazione di nuove entità.
-\end{itemize}
-
+Nello schema sono presenti  degli attributi multivalore usati per rappresentare gli indirizzi (delle caserme e delle officine); li scorporiamo in attributi semplici. 
+Per quanto concerne il partizionamento di associazioni, non abbiamo avuto necessità di modifiche ulteriori.
 \subsubsection{Scelta degli identificatori primari}
 Per ogni entità dello schema ristrutturato, definiamo l'identificatore principale che verrà utilizzato nel modello relazionale. Dove possibile, si preferisce l'utilizzo di codici univoci o identificatori surrogati (ID) rispetto a chiavi composte da stringhe, per migliorare l'efficienza degli indici.
 
