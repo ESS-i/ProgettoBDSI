@@ -165,7 +165,7 @@ In primo luogo siamo partiti da 3 differenti micro-schemi di questo tipo:
 in cui abbiamo preso in considerazione un sottoinsieme delle varie entità individuando le relazioni fondamentali che le legano.
 In particolare si noti come la base dovrebbe occuparsi della gestione di 3 ambiti diversi: gestione chiamate, interventi e richiesta di manutenzione.
 
-Osserviamo come i \textbf{vigili}, i \textbf{centralinisti} e il \textbf{personale amministrativo} possano essere accorpati all’interno della generalizzazione (dalle specifiche totale e sovrapposta) \textbf{Dipendente} che riunisce le caratteristiche (attributi) comuni, come il \textit{nome}, il \textit{cognome}, lo \textit{stipendio} percepito e la \textbf{\textit{caserma}} in cui lavorano.
+Osserviamo come i \textbf{vigili}, i \textbf{centralinisti} e il \textbf{personale amministrativo} possano essere accorpati all’interno della generalizzazione (dalle specifiche totale ed esclusiva) \textbf{Dipendente} che riunisce le caratteristiche (attributi) comuni, come il \textit{nome}, il \textit{cognome}, lo \textit{stipendio} percepito e la \textbf{\textit{caserma}} in cui lavorano.
 Risulta il seguente:
 \begin{figure}[H]
     \centering
@@ -197,6 +197,7 @@ Alcune osservazioni da fare:
 \begin{itemize}
     \item Abbiamo preferito aggiungere un \textit{CodDip} in quanto abbiamo bisogno di un modo per identificare univocamente un dipendente e le specifiche non fornivano alcuna richiesta esplicita. 
     \item Abbiamo preferito aggiungere alcuni attributi relativi all'officina in quanto di potenziale interesse (\textit{IndOff, TelOff, NomeOff})
+    \item Abbiamo aggiunto un \textit{CodInt} per identificare univocamente un intervento. In questo caso una eventuale identificazione esterna con la Chiamata sarebbe risultata problematica.
     \item Sebbene in prima battuta ci sembrasse ragionevole un'identificazione esterna della manutenzione tramite il mezzo, essa risulterebbe problematica nella gestione dello storico delle manutenzioni.\\ Aggiungiamo quindi un attributo \textit{CodManut} per facilitare il tutto. 
 \end{itemize}
 
@@ -223,15 +224,15 @@ Passiamo ora in rassegna quelle che sono le entità coinvolte, già \textcolor{o
         \hline
         \textbf{Personale Amministrativo} & Personale che gestisce gli aspetti burocratici e amministrativi, come supervisione di interventi e ordine di revisioni su mezzi & MansioneAmm, LivFunzionale, AbilitFirma  \\
         \hline
-        \textbf{Chiamata} & Potenziale richiesta di intervento ricevuta dalla centrale operativa & \textbf{CodChiam}, OraInizioChiam, OraFineChiam, NumChiamante, DescrChiamata \\
+        \textbf{Chiamata} & Potenziale richiesta di intervento ricevuta dalla centrale operativa & \textbf{CodChiam}, OraInizioChiam, OraFineChiam, NumChiamante, DescrChiam \\
         \hline
-        \textbf{Intervento} & Operazione di soccorso effettuata a seguito di una chiamata valida & \textbf{CodIntervento}, TipoInt, PrioritàInt, OraInizioInt, OraFineInt, EsitoInt \\
+        \textbf{Intervento} & Operazione di soccorso effettuata a seguito di una chiamata valida & \textbf{CodInt}, TipoInt, PrioritàInt, OraInizioInt, OraFineInt, EsitoInt \\
         \hline
         \textbf{Squadra} & Gruppo di vigili che opera congiuntamente negli interventi & \textbf{CodSquad}, DenomOper, AreaComp, DataCostit \\
         \hline
-        \textbf{Mezzo} & Veicolo o attrezzatura utilizzata negli interventi & \textbf{CodMezzo}, Classe, Modello, AnnoFabb, DataUltimaManut \\
+        \textbf{Mezzo} & Veicolo o attrezzatura utilizzata negli interventi & \textbf{CodMezzo}, ClasseMezzo, ModelloMezzo, AnnoFabbMezzo, DataUltimaManutMezzo \\
         \hline
-        \textbf{Manutenzione} & Attività di controllo e riparazione effettuata sui mezzi & \textbf{CodManut}, DataRichiestaManut, DataSvolg, TipoManut (ordinaria/straordinaria), SpesaManut, DescrManut \\
+        \textbf{Manutenzione} & Attività di controllo e riparazione effettuata sui mezzi & \textbf{CodManut}, DataSvolgManut, TipoManut (ordinaria/straordinaria), SpesaManut, DescrManut \\
         \hline
         \textbf{Officina} & Struttura convenzionata che effettua le manutenzioni & \textbf{NomeOff, IndOff, TelOff} \\
         \hline
@@ -303,10 +304,8 @@ Durante la fase di progettazione sono stati individuati dei vincoli non esprimib
     \hline
     V5 & Una squadra deve essere composta da almeno 3 vigili attivi (vincolo di cardinalità minima complesso). \\
     \hline
-    V6 & Un mezzo non può essere impiegato contemporaneamente in due interventi che si sovrappongono temporalmente. \\
+    V6 & Solo il personale amministrativo con l'attributo \textit{AbilitFirma} impostato a \textit{true} può effettuare richieste di manutenzione. \\
     \hline
-    V7 & Solo il personale amministrativo con l'attributo \textit{AbilitFirma} impostato a \textit{true} può effettuare richieste di manutenzione. \\
-    \hline
-    V8 & Un mezzo può essere impiegato in un intervento solo se risulta "a norma", ovvero se la \textit{DataUltimaManut} non è antecedente di oltre un anno rispetto alla data dell'intervento. \\
+    V7 & Un mezzo può essere impiegato in un intervento solo se risulta "a norma", ovvero se la \textit{DataUltimaManut} non è antecedente di oltre un anno rispetto alla data dell'intervento. \\
     \hline
 \end{longtable}

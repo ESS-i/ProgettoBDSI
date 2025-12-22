@@ -129,15 +129,15 @@ Oltre al caso analizzato, si decide di mantenere le seguenti ridondanze per moti
 In questa fase si apportano modifiche allo schema concettuale al fine di ottimizzarlo per il modello relazionale, basandosi sulle valutazioni prestazionali e sui volumi di dati stimati.
 
 \subsubsection{Eliminazione delle generalizzazioni}
-Lo schema presenta una generalizzazione \textbf{totale e sovrapposta} nell'entità \textit{Dipendente}, che si specializza in \textit{Vigile}, \textit{Centralinista} e \textit{Personale Amministrativo}.
+Lo schema presenta una generalizzazione \textbf{totale e esclusiva} nell'entità \textit{Dipendente}, che si specializza in \textit{Vigile}, \textit{Centralinista} e \textit{Personale Amministrativo}.
 La decisione che prendiamo è quella di creare un'unica entità \textit{Dipendente} che conterrà, oltre agli attributi comuni, anche quelli specifici (\textit{GradoVigile, RepartoVigile, AnnoAssunzione, OrarioTurno, MansioneAmm, LivFunzionale, AbilitFirma}) che assumeranno valore NULL qualora il dipendente non ricopra quel ruolo specifico.
-Vengono introdotti degli attributi booleani per indicare i ruoli ricoperti. Le relazioni specifiche (\textit{Appartenenza, Riceve, Richiede, Afferenza}) verranno collegate direttamente all'entità \textit{Dipendente}.
+Per effettuare delle eventuali interrogazioni sfrutteremo le viste per semplicità. Le relazioni specifiche (\textit{Appartenenza, Riceve, Richiede, Afferenza}) verranno collegate direttamente all'entità \textit{Dipendente}.
 
 \subsubsection{Partizionamento ed eliminazione attributi multivalore}
 Nello schema sono presenti  degli attributi multivalore usati per rappresentare gli indirizzi (delle caserme e delle officine); li scorporiamo in attributi semplici. 
 Per quanto concerne il partizionamento di associazioni, non abbiamo avuto necessità di modifiche ulteriori.
 \subsubsection{Scelta degli identificatori primari}
-Per ogni entità dello schema ristrutturato, definiamo l'identificatore principale che verrà utilizzato nel modello relazionale. Dove possibile, si preferisce l'utilizzo di codici univoci o identificatori surrogati (ID) rispetto a chiavi composte da stringhe, per migliorare l'efficienza degli indici.
+Per ogni entità dello schema ristrutturato, definiamo l'identificatore principale che verrà utilizzato nel modello relazionale.     
 
 \begin{table}[H]
     \centering
@@ -148,19 +148,23 @@ Per ogni entità dello schema ristrutturato, definiamo l'identificatore principa
         \hline
         Caserma & \textit{CodCaserma} & Identificatore numerico univoco già presente nelle specifiche. \\
         \hline
-        Dipendente & \textit{CodDip} & Introdotto per gestire univocamente il personale. \\
+        Dipendente & \textit{CodDip} & Introdotto per gestire univocamente il personale \\
         \hline
-        Chiamata & \textit{CodChiam} & Identificatore univoco della chiamata. \\
+        Chiamata & \textit{CodChiam} & Identificatore univoco della chiamata, già presente nelle specifiche \\
         \hline
-        Intervento & \textit{CodIntervento} & Identificatore univoco dell'intervento (indipendente dalla chiamata). \\
+        Intervento & \textit{CodInt} & Introdotto per identificare univocamente l'intervento \\
         \hline
-        Squadra & \textit{CodSquad} & Identificatore univoco della squadra. \\
+        Squadra & \textit{CodSquad} & Identificatore univoco della squadra, già presente nelle specifiche. \\
         \hline
         Mezzo & \textit{CodMezzo} & Identificatore univoco del mezzo. \\
         \hline
         Manutenzione & \textit{CodManut} & Lo avevamo già preferito rispetto all'identificazione esterna per semplicità. \\
         \hline
-        Officina & \textit{CodOfficina} & \textbf{Nuovo identificatore.} Nello schema concettuale l'officina era identificata da attributi anagrafici (NomeOff, IndOff). Si introduce un ID numerico per efficienza nelle chiavi esterne. \\
+        Officina & \textit{CodOff} & \textbf{Nuovo identificatore.} Nello schema concettuale l'officina era identificata da attributi anagrafici (NomeOff, IndOff). Si introduce un ID numerico per efficienza nelle chiavi esterne. \\
         \hline
     \end{tabularx}
 \end{table}
+\subsection{Schema ristrutturato}
+A questo punto otteniamo il seguente schema ristrutturato:
+%TODO: aggiungere schema ristrutturato
+
