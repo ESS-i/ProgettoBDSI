@@ -1,3 +1,8 @@
 *.aux
 *.gz
 .vscode/*
+*.fdb_latexmk
+*.fls
+*.log
+main.synctex.gz
+*.toc
