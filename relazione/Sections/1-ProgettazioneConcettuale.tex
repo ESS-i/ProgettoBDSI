@@ -177,8 +177,8 @@ A questo punto ci concentriamo sulla parte relativa a tutti gli aspetti di un in
 
 Infine, la parte amministrativa. Il personale amministrativo come già detto ha due ruoli:
 \begin{itemize}
-    \item \textit{Richiede} le manutenzioni che verranno \textit{effettuate} da un'\textbf{officina} (che le realizza) su dei \textbf{mezzi} (modellati come entità), \textit{impiegati} nell’ambito degli interventi
-    \item È responsabile della squadra, a cui essa \textit{afferisce}
+    \item \underline{Richiede} le manutenzioni che verranno \underline{effettuate} da un'\textbf{officina} (che le realizza) su dei \textbf{mezzi} (modellati come entità), \underline{impiegati} nell’ambito degli interventi
+    \item È responsabile della squadra, a cui essa \underline{afferisce}
 \end{itemize}
 
 A seguito di integrazione e della naturale modellazione di queste ultime tre relazioni e dell’aggiunta dell’entità \textbf{officina} che \underline{effettua} la manutenzione (nonché convenzionata con la caserma) otteniamo il seguente:
@@ -205,7 +205,7 @@ Alcune osservazioni da fare:
     \item Sebbene in prima battuta ci sembrasse ragionevole un'identificazione esterna della manutenzione tramite il mezzo, essa risulterebbe problematica nella gestione dello storico delle manutenzioni.\\ Aggiungiamo quindi un attributo \textit{CodManut} per facilitare il tutto. 
 \end{itemize}
 
-A questo punto andiamo inoltre a determinare le cardinalità delle precisazioni ed apportiamo le modifiche necessarie allo schema:
+A questo punto andiamo inoltre a determinare le cardinalità delle associazioni ed apportiamo le modifiche necessarie allo schema:
 
 \begin{figure}[H]
     \centering
@@ -230,7 +230,7 @@ Passiamo ora in rassegna quelle che sono le entità coinvolte, già \textcolor{o
         \hline
         \textbf{Dipendente} & Generalizzazione del personale che lavora nella caserma & \textbf{CodDip}, NomeDip, CognomeDip, Stipendio \\
         \hline
-        \textbf{Vigile} & Personale operativo che interviene nelle emergenze & GradoVigile, RepartoVigile \\
+        \textbf{Vigile} & Personale operativo che interviene nelle emergenze & GradoVigile \\
         \hline
         \textbf{Centralinista} & Personale che riceve le chiamate di emergenza & AnnoAssunzione, OrarioTurno \\
         \hline
