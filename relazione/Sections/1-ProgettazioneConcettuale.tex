@@ -158,7 +158,7 @@ e partendo da semplici pattern, aggiungendo mano mano quanto necessario\dots
 In primo luogo siamo partiti da 3 differenti micro-schemi di questo tipo:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{Schemas/Schema1.pdf}
+    \includegraphics[width=0.8\textwidth]{Schemas/Schema1.pdf}
     \caption*{Schemi 1, 2, 3}
 \end{figure}
 
@@ -169,7 +169,7 @@ Osserviamo come i \textbf{vigili}, i \textbf{centralinisti} e il \textbf{persona
 Risulta il seguente:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{Schemas/Schema4.pdf}
+    \includegraphics[width=0.8\textwidth]{Schemas/Schema4.pdf}
     \caption*{Schema 4}
 \end{figure}
 
@@ -189,9 +189,13 @@ A seguito di integrazione e della naturale modellazione di queste ultime tre rel
     \caption*{Schema 5}
 \end{figure}
 
+Una volta terminato lo scheletro di base, aggiungiamo gli attributi alle varie entità, lo schema risultante è il seguente:
 
-Una volta terminato lo scheletro di base, aggiungiamo gli attributi alle varie entità, già  e determiniamo le cardinalità delle partecipazioni. Lo schema risultante è il seguente:
-%TODO: Inserire i due schemi finali
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Schemas/Schema6.pdf}
+    \caption*{Schema 6}
+\end{figure}
 
 Alcune osservazioni da fare:
 \begin{itemize}
@@ -201,6 +205,14 @@ Alcune osservazioni da fare:
     \item Sebbene in prima battuta ci sembrasse ragionevole un'identificazione esterna della manutenzione tramite il mezzo, essa risulterebbe problematica nella gestione dello storico delle manutenzioni.\\ Aggiungiamo quindi un attributo \textit{CodManut} per facilitare il tutto. 
 \end{itemize}
 
+A questo punto andiamo inoltre a determinare le cardinalità delle precisazioni ed apportiamo le modifiche necessarie allo schema:
+
+\begin{figure}[H]
+    \centering
+    \hspace*{-4cm}
+    \includegraphics[width=1.5\textwidth]{Schemas/Schema7.pdf}
+    \caption*{Schema 7}
+\end{figure}
 
 \pagebreak
 \subsection{Entità coinvolte}
