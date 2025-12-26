@@ -55,6 +55,10 @@ INPUT /usr/share/texmf-dist/tex/latex/tools/longtable.sty
 INPUT /usr/share/texmf-dist/tex/latex/tools/longtable.sty
 INPUT /usr/share/texmf-dist/tex/latex/tools/tabularx.sty
 INPUT /usr/share/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/share/texmf-dist/tex/generic/ulem/ulem.sty
+INPUT /usr/share/texmf-dist/tex/generic/ulem/ulem.sty
+INPUT /usr/share/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/share/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./main.aux
@@ -86,7 +90,6 @@ OUTPUT FrontMatter/TitlePage.aux
 INPUT ./FrontMatter/TitlePage.tex
 INPUT ./FrontMatter/TitlePage.tex
 INPUT FrontMatter/TitlePage.tex
-INPUT /usr/share/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./logo/LOGO.pdf
@@ -145,6 +148,11 @@ OUTPUT Sections/2-ProgettazioneLogica.aux
 INPUT ./Sections/2-ProgettazioneLogica.tex
 INPUT ./Sections/2-ProgettazioneLogica.tex
 INPUT Sections/2-ProgettazioneLogica.tex
+INPUT ./Schemas/Schema8.pdf
+INPUT ./Schemas/Schema8.pdf
+INPUT ./Schemas/Schema8.pdf
+INPUT ./Schemas/Schema8.pdf
+INPUT ./Schemas/Schema8.pdf
 INPUT main.aux
 INPUT ./FrontMatter/TitlePage.aux
 INPUT ./FrontMatter/TitlePage.aux

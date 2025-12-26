@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.12.23)  26 DEC 2025 17:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.12.23)  26 DEC 2025 18:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -181,40 +181,51 @@ Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
 \TX@delta=\dimen167
 \TX@cols=\count285
 \TX@ftn=\toks24
+) (/usr/share/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box61
+\UL@hyphenbox=\box62
+\UL@skip=\skip89
+\UL@hook=\toks25
+\UL@height=\dimen168
+\UL@pe=\count286
+\UL@pixel=\dimen169
+\ULC@box=\box63
+Package: ulem 2019/11/18
+\ULdepth=\dimen170
 ) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count286
-\l__pdf_internal_box=\box61
+\l__color_backend_stack_int=\count287
+\l__pdf_internal_box=\box64
 ) (./main.aux (./FrontMatter/TitlePage.aux) (./Sections/1-ProgettazioneConcettuale.aux) (./Sections/2-ProgettazioneLogica.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count287
-\scratchdimen=\dimen168
-\scratchbox=\box62
-\nofMPsegments=\count288
-\nofMParguments=\count289
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count290
-\MPscratchDim=\dimen169
-\MPnumerator=\count291
-\makeMPintoPDFobject=\count292
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count288
+\scratchdimen=\dimen171
+\scratchbox=\box65
+\nofMPsegments=\count289
+\nofMParguments=\count290
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count291
+\MPscratchDim=\dimen172
+\MPnumerator=\count292
+\makeMPintoPDFobject=\count293
+\everyMPtoPDFconversion=\toks27
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -411,7 +422,7 @@ File: Schemas/Schema7.pdf Graphic file (type pdf)
 Package pdftex.def Info: Schemas/Schema7.pdf  used on input line 213.
 (pdftex.def)             Requested size: 650.43001pt x 365.8635pt.
 
-Overfull \hbox (105.22119pt too wide) in paragraph at lines 212--214
+Overfull \hbox (119.44757pt too wide) in paragraph at lines 212--214
  []|  [] 
  []
 
@@ -532,27 +543,74 @@ Underfull \hbox (badness 1210) in paragraph at lines 165--165
 []|\OT1/cmr/m/n/10 Identificatore nu-merico uni-voco gi^^Ra pre-sente nelle
  []
 
+
+
+[13]
+<Schemas/Schema8.pdf, id=2567, 1445.4pt x 813.0375pt>
+File: Schemas/Schema8.pdf Graphic file (type pdf)
+<use Schemas/Schema8.pdf>
+Package pdftex.def Info: Schemas/Schema8.pdf  used on input line 174.
+(pdftex.def)             Requested size: 650.43001pt x 365.8635pt.
+
+Overfull \hbox (105.22119pt too wide) in paragraph at lines 173--175
+ []|  [] 
+ []
+
+
+Overfull \hbox (7.43741pt too wide) in paragraph at lines 180--190
+\OT1/cmr/bx/n/10 Caserma\OT1/cmr/m/n/10 ($[]$, NumTel-Caserma, Vi-a-Caserma, Civic-o-Caserma, Cap-Caserma, Citt^^RaCaserma) 
+ []
+
+
+Overfull \hbox (31.3041pt too wide) in paragraph at lines 180--190
+\OT1/cmr/bx/n/10 Manutenzione\OT1/cmr/m/n/10 ($[]$, DataSvol-gManut, Spe-saManut, Tipo-Manut, De-scr-Manut, Cod-Dip, DataRichi-
+ []
+
+
+
+[14 <./Schemas/Schema8.pdf>]
+./Sections/2-ProgettazioneLogica.tex:192: Missing $ inserted.
+<inserted text> 
+                $
+l.192 Dipendente.CodCaserma \rightarrow
+                                        Caserma.CodCaserma\\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./Sections/2-ProgettazioneLogica.tex:205: Missing $ inserted.
+<inserted text> 
+                $
+l.205 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--205
+
+ []
+
 )
 
-[13] (./main.aux (./FrontMatter/TitlePage.aux) (./Sections/1-ProgettazioneConcettuale.aux) (./Sections/2-ProgettazioneLogica.aux))
+[15] (./main.aux (./FrontMatter/TitlePage.aux) (./Sections/1-ProgettazioneConcettuale.aux) (./Sections/2-ProgettazioneLogica.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4881 strings out of 475171
- 81652 string characters out of 5767094
- 496845 words of memory out of 5000000
- 27837 multiletter control sequences out of 15000+600000
- 561694 words of font info for 45 fonts, out of 8000000 for 9000
+ 4978 strings out of 475171
+ 82928 string characters out of 5767094
+ 498011 words of memory out of 5000000
+ 27929 multiletter control sequences out of 15000+600000
+ 561800 words of font info for 46 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  57i,14n,65p,698b,353s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (14 pages, 644709 bytes).
+Output written on main.pdf (16 pages, 859267 bytes).
 PDF statistics:
- 2481 PDF objects out of 2487 (max. 8388607)
- 1710 compressed objects within 18 object streams
+ 3639 PDF objects out of 4296 (max. 8388607)
+ 2512 compressed objects within 26 object streams
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

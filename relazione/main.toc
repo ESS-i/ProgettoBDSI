@@ -14,4 +14,7 @@
 \contentsline {subsubsection}{\numberline {2.2.1}Eliminazione delle generalizzazioni}{13}{}%
 \contentsline {subsubsection}{\numberline {2.2.2}Partizionamento ed eliminazione attributi multivalore}{13}{}%
 \contentsline {subsubsection}{\numberline {2.2.3}Scelta degli identificatori primari}{13}{}%
-\contentsline {subsection}{\numberline {2.3}Schema ristrutturato}{13}{}%
+\contentsline {subsection}{\numberline {2.3}Schema ristrutturato}{14}{}%
+\contentsline {subsection}{\numberline {2.4}Traduzione al Modello Relazionale}{14}{}%
+\contentsline {subsubsection}{\numberline {2.4.1}Schema logico}{14}{}%
+\contentsline {subsubsection}{\numberline {2.4.2}Vincoli di integrità referenziale}{15}{}%
