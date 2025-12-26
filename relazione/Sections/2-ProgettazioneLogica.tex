@@ -164,7 +164,43 @@ Per ogni entità dello schema ristrutturato, definiamo l'identificatore principa
         \hline
     \end{tabularx}
 \end{table}
+\pagebreak
 \subsection{Schema ristrutturato}
 A questo punto otteniamo il seguente schema ristrutturato:
-%TODO: aggiungere schema ristrutturato
 
+\begin{figure}[H]
+    \centering
+    \hspace*{-4cm}
+    \includegraphics[width=1.5\textwidth]{Schemas/Schema8.pdf}
+    \caption*{Schema 8}
+\end{figure}
+
+\subsection{Traduzione al Modello Relazionale}
+\subsubsection{Schema logico}
+\textbf{Caserma}(\underline{CodCaserma}, NumTelCaserma, ViaCaserma, CivicoCaserma, CapCaserma, CittàCaserma)\\
+\textbf{Convenzione}(\underline{CodCaserma}, \underline{CodOff})
+\textbf{Dipendente}(\underline{CodDip}, NomeDip, CognomeDip, Stipendio, *GradoVigile, *AnnoAssunzione, *OrarioTurno, *MansioneAmm, *LivFunzionale, *AbilitFirma, CodSquad, DataEntrata, DataUscita, CodCaserma)\\
+\textbf{Squadra}(\underline{CodSquad}, DenomOper, AreaComp, DataCostit, CodCaserma)\\
+\textbf{Gestisce}(\underline{CodSquad}, \underline{CodInt})\\
+\textbf{Intervento}(\underline{CodInt}, TipoInt, PrioritàInt, OraFineInt, EsitoInt, \dashuline{CodChiam})\\
+\textbf{Mezzo}(\underline{CodMezzo}, ClasseMezzo, ModelloMezz, AnnoFabbMezzo, DataUltManut, CodInt)\\
+\textbf{Chiamata}(\underline{CodChiam}, OrarioInizioChiam, OrarioFineChiam. DescrChiam, NumChiamante, CodDip)\\
+\textbf{Manutenzione}(\underline{CodManut}, DataSvolgManut, SpesaManut, TipoManut, DescrManut, CodDip, DataRichiesta, CodOff, CodMezzo)\\
+\textbf{Officina}(\underline{CodOff}, TelOff, NomeOff, CittàOff, ViaOff, CivicaOff, CapOff)
+
+\subsubsection{Vincoli di integrità referenziale}
+Dipendente.CodCaserma \rightarrow Caserma.CodCaserma\\
+Dipendente.CodSquad \rightarrow Squadra.CodSquad\\
+Squadra.CodCaserma \rightarrow Caserma.CodCaserma\\
+Chiamata.CodDip \rightarrow Dipendente.CodDip\\
+Intervento.CodChiam \rightarrow Chiamata.CodChiam\\
+Mezzo.CodInt \rightarrow Intervento.CodInt\\
+Manutenzione.CodDip \rightarrow Dipendente.CodDip\\
+Manutenzione.CodOff \rightarrow Officina.CodOff\\
+Manutenzione.CodMezzo \rightarrow Mezzo.CodMezzo\\
+Gestisce.CodSquad \rightarrow Squadra.CodSquad\\
+Gestisce.CodInt \rightarrow Intervento.CodInt\\
+Convenzione.CodCaserma \rightarrow Caserma.CodCaserma\\
+Convenzione.CodOff \rightarrow Officina.CodOff\\
+
+% Ho preferito non usare le tabelle per una maggiore visibilità, puoi cambiarle se vuoi.
