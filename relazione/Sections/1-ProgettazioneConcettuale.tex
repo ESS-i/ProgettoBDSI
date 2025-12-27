@@ -265,13 +265,13 @@ Di seguito riportiamo le associazioni individuate tra le entità, con le relativ
         \hline
         \textbf{APPARTENENZA} & \textbf{Vigile} (1,1) \newline \textbf{Squadra} (3,N) & Un vigile appartiene ad una singola squadra, una squadra deve essere fatta da almeno 3 vigili \\
         \hline
-        \textbf{ASSEGNATO A} & \textbf{Squadra} (1,1) \newline \textbf{Intervento} (1,N) & Una squadra può essere assegnata a solo un intervento, ma un intervento può essere assegnato a più squadre \\
+        \textbf{ASSEGNATO A} & \textbf{Squadra} (0,N) \newline \textbf{Intervento} (1,N) & Una squadra può o meno essere assegnato ad un determinato intervento, ma ogni intervento deve essere assegnato almeno ad una squadra \\
         \hline
-        \textbf{IMPIEGATO IN} & \textbf{Intervento} (1,N) \newline \textbf{Mezzo} (1,1) & In un intervento possono essere impiegati più mezzi, mentre un mezzo sarà sicuramente impiegato in un intervento \\
+        \textbf{IMPIEGATO IN} & \textbf{Mezzo} (0,N) \newline \textbf{Intervento} (1,N)  & Un mezzo può essere usato in un intervento e in un intervento sarà usato almeno un mezzo \\
         \hline
-        \textbf{EFFETTUATA SU} & \textbf{Manutenzione} (1,1) \newline \textbf{Mezzo} (1,1) & La manutenzione riguarda un singolo mezzo e sul mezzo viene effettuata una singola manutenzione \\
+        \textbf{EFFETTUATA SU} & \textbf{Manutenzione} (1,1) \newline \textbf{Mezzo} (0,N) & La manutenzione riguarda un singolo mezzo e sul mezzo nel tempo possono essere effettuate tante manutenzioni \\
         \hline
-        \textbf{REALIZZATE DA} & \textbf{Manutenzione} (1,1) \newline \textbf{Officina} (0,N) & Una manutenzione è realizzata da una sola officina, un'officina può effettuare più manutenzioni o nessuna \\
+        \textbf{REALIZZATA DA} & \textbf{Manutenzione} (1,1) \newline \textbf{Officina} (0,N) & Una manutenzione è realizzata da una sola officina, un'officina può effettuare più manutenzioni o nessuna \\
         \hline
         \textbf{RICHIEDE} & \textbf{Manutenzione} (1,1) \newline \textbf{Amministrativo} (0,N) & Un amministrativo può eventualmente (se autorizzato) richiedere una o più manutenzioni. Una manutenzione può essere richiesta da un solo amministrativo \\
         \hline
@@ -281,9 +281,9 @@ Di seguito riportiamo le associazioni individuate tra le entità, con le relativ
         \hline
         \textbf{GENERA} & \textbf{Chiamata} (0,1) \newline \textbf{Intervento} (1,1) & Una chiamata può eventualmente generare un intervento. Un intervento è necessariamente generato da una singola chiamata \\
         \hline
-        \textbf{LAVORARE} & \textbf{Dipendenti} (1,1) \newline \textbf{Caserma} (1,N) & In una caserma lavora almeno 1 dipendente, un dipendente lavora in una sola caserma. \\
+        \textbf{LAVORA} & \textbf{Dipendente} (1,1) \newline \textbf{Caserma} (1,N) & In una caserma lavora almeno 1 dipendente, un dipendente lavora in una sola caserma. \\
         \hline
-        \textbf{CONVENZIONATA} & \textbf{Caserma} (1,N) \newline \textbf{Officina} (1,N) & Una caserma è convenzionata con almeno 1 officina, un officina è convenzionata con almeno una caserma \\
+        \textbf{CONVENZIONE} & \textbf{Caserma} (1,N) \newline \textbf{Officina} (1,N) & Una caserma è convenzionata con almeno 1 officina, un officina è convenzionata con almeno una caserma \\
         \hline
     \end{tabularx}
 \end{table}
