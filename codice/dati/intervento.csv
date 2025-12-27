@@ -1,0 +1,10 @@
+CodInt,TipoInt,PrioritàInt,OraFineInt,EsitoInt,CodChiam
+INT001,Incendio,1,2025-12-01 11:00:00,Concluso con successo,CH001
+INT002,Soccorso Animali,3,2025-12-01 10:30:00,Animale recuperato,CH002
+INT003,Incidente,1,2025-12-01 12:00:00,Feriti estratti,CH003
+INT004,Fuga Gas,2,2025-12-01 15:30:00,Area messa in sicurezza,CH004
+INT005,Apertura Porta,2,2025-12-01 17:00:00,Accesso effettuato,CH005
+INT006,Incendio Boschivo,1,2025-12-02 02:00:00,Domato,CH006
+INT007,Prosciugamento,3,2025-12-02 06:00:00,Cantina svuotata,CH007
+INT008,Bonifica Insetti,4,2025-12-02 12:30:00,Nido rimosso,CH009
+INT009,Incendio Veicolo,1,2025-12-02 15:00:00,Spento,CH010

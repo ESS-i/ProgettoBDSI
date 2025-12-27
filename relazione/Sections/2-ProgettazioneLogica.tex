@@ -180,7 +180,7 @@ A questo punto otteniamo il seguente schema ristrutturato:
 \subsubsection{Schema logico}
 \textbf{Caserma}(\underline{CodCaserma}, NumTelCaserma, ViaCaserma, CivicoCaserma, CapCaserma, CittàCaserma)\\
 \textbf{Convenzione}(\underline{CodCaserma}, \underline{CodOff})\\
-\textbf{Dipendente}(\underline{CodDip}, NomeDip, CognomeDip, Stipendio, *GradoVigile, *AnnoAssunzione, *OrarioTurno, *MansioneAmm, *LivFunzionale, *AbilitFirma, CodSquad, DataEntrata, DataUscita, CodCaserma)\\
+\textbf{Dipendente}(\underline{CodDip}, NomeDip, CognomeDip, Stipendio, *GradoVigile, *AnnoAssunzione, *OrarioTurno, *MansioneAmm, *LivFunzionale, *AbilitFirma, *CodSquad, *DataEntrata, *DataUscita, CodCaserma)\\
 \textbf{Squadra}(\underline{CodSquad}, DenomOper, AreaComp, DataCostit, CodCaserma)\\
 \textbf{AssegnatoA}(\underline{CodSquad}, \underline{CodInt})\\
 \textbf{Intervento}(\underline{CodInt}, TipoInt, PrioritàInt, OraFineInt, EsitoInt, CodChiam)\\
@@ -188,7 +188,7 @@ A questo punto otteniamo il seguente schema ristrutturato:
 \textbf{Mezzo}(\underline{CodMezzo}, ClasseMezzo, ModelloMezz, AnnoFabbMezzo, DataUltManut)\\
 \textbf{Chiamata}(\underline{CodChiam}, OrarioInizioChiam, OrarioFineChiam, DescrChiam, NumChiamante, CodDip)\\
 \textbf{Manutenzione}(\underline{CodManut}, DataSvolgManut, SpesaManut, TipoManut, DescrManut, CodDip, DataRichiesta, CodOff, CodMezzo)\\
-\textbf{Officina}(\underline{CodOff}, TelOff, NomeOff, CittàOff, ViaOff, CivicaOff, CapOff)
+\textbf{Officina}(\underline{CodOff}, TelOff, NomeOff, CittàOff, ViaOff, CivicoOff, CapOff)
 
 \subsubsection{Vincoli di integrità referenziale}
 Dipendente.CodCaserma $\rightarrow$ Caserma.CodCaserma\\

@@ -1,0 +1,6 @@
+CodManut,DataSvolgManut,SpesaManut,TipoManut,DescrManut,CodDip,DataRichiesta,CodOff,CodMezzo
+MAN001,2025-06-15,500.00,Ordinaria,Tagliando completo,D006,2025-06-01,OFF01,VF20100
+MAN002,2025-01-20,1200.50,Straordinaria,Riparazione scala idraulica,D006,2025-01-10,OFF01,VF20101
+MAN003,2025-08-10,300.00,Ordinaria,Cambio gomme,D015,2025-08-01,OFF03,VF20102
+MAN004,2025-09-01,150.00,Ordinaria,Revisione freni,D015,2025-08-25,OFF02,VF20103
+MAN005,2025-11-05,2000.00,Straordinaria,Sostituzione pompa acqua,D006,2025-10-30,OFF01,VF20104

@@ -1,0 +1,17 @@
+CodDip,NomeDip,CognomeDip,Stipendio,GradoVigile,AnnoAssunzione,OrarioTurno,MansioneAmm,LivFunzionale,AbilitFirma,CodSquad,DataEntrata,DataUscita,CodCaserma
+D001,Mario,Rossi,1800,Caposquadra,,,,,,SQ01,2020-01-01,,CAS01
+D002,Luca,Bianchi,1600,Vigile,,,,,,SQ01,2020-02-01,,CAS01
+D003,Giulia,Verdi,1600,Vigile,,,,,,SQ01,2021-05-10,,CAS01
+D004,Ahmed,Karim,1400,,2018,08:00-14:00,,,,,,,CAS01
+D005,Elena,Neri,1500,,2019,14:00-20:00,,,,,,,CAS01
+D006,Francesca,Galli,1900,,,,Contabilità,B2,TRUE,,,,CAS01
+D007,Roberto,Ferrari,1700,Vigile Esperto,,,,,,SQ02,2021-03-15,,CAS01
+D008,Antonio,Esposito,1650,Vigile,,,,,,SQ02,2021-04-01,,CAS01
+D009,Sarah,Smith,1400,,2020,20:00-08:00,,,,,,,CAS02
+D010,Matteo,Rizzi,1850,Caposquadra,,,,,,SQ03,2019-05-20,,CAS02
+D011,Wei,Chen,1600,Vigile,,,,,,SQ03,2020-01-10,,CAS02
+D012,Laura,Bruni,1800,,,,Segreteria,C1,FALSE,,,,CAS02
+D013,Marco,Moretti,1750,Vigile Coordinatore,,,,,,SQ04,2022-02-10,,CAS03
+D014,Davide,Romano,1600,Vigile,,,,,,SQ04,2022-02-15,,CAS03
+D015,Anna,Costa,1950,,,,Logistica,B3,TRUE,,,,CAS03
+D016,Luigi,De Luca,1600,Vigile,,,,,,SQ05,2023-06-01,,CAS02
