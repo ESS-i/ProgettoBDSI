@@ -1,19 +1,19 @@
 CodSquad,DenomOper,AreaComp,DataCostit,CodCaserma
-SQ01,Partenza 1A,Firenze Centro,2018-01-01,CAS01
-SQ02,Autoscala 1A,Firenze Centro,2019-03-15,CAS01
-SQ03,Autobotte 1A,Firenze Est,2020-06-20,CAS01
+SQ01,1A Partenza,Firenze Città,2018-01-01,CAS01
+SQ02,Autoscala 1,Firenze Città,2019-03-15,CAS01
+SQ03,Supporto Idrico (ABP),Firenze e Provincia,2020-06-20,CAS01
 SQ04,Nucleo SAF,Provincia FI,2015-11-10,CAS01
-SQ05,Funzionario Guardia,Provincia FI,2021-01-01,CAS01
-SQ06,Partenza 2A,Firenze Nord,2017-05-05,CAS02
+SQ05,Funzionario di Guardia,Provincia FI,2021-01-01,CAS01
+SQ06,1A Partenza Nord,Firenze Nord,2017-05-05,CAS02
 SQ07,Polisoccorso,Firenze Nord,2019-09-12,CAS02
-SQ08,Distaccamento Nord,Fiesole,2018-02-28,CAS02
-SQ09,Nucleo NBCR,Regione Toscana,2016-07-30,CAS02
-SQ10,Partenza 2B,Coverciano,2022-04-15,CAS02
-SQ11,Partenza 1A Prato,Prato Centro,2015-08-20,CAS03
+SQ08,Autobotte 2,Fiesole/Nord,2018-02-28,CAS02
+SQ09,Nucleo NBCR Avanzato,Regione Toscana,2016-07-30,CAS02
+SQ10,2A Partenza,Coverciano,2022-04-15,CAS02
+SQ11,1A Partenza Prato,Prato Città,2015-08-20,CAS03
 SQ12,Autoscala Prato,Prato Est,2018-12-01,CAS03
-SQ13,Boschiva,Colline Pratesi,2020-05-25,CAS03
-SQ14,Supporto Logistico,Area Industriale,2021-11-11,CAS03
+SQ13,Squadra AIB,Colline Pratesi,2020-05-25,CAS03
+SQ14,UCL (Unità Crisi Locale),Area Industriale,2021-11-11,CAS03
 SQ15,Nucleo Sommozzatori,Bacino Arno,2019-06-30,CAS03
-SQ16,Partenza Ridotta,Centro Storico,2023-01-15,CAS01
-SQ17,Carro Teli,Firenze Sud,2014-03-10,CAS02
-SQ18,Unità Cinofila,Regione Toscana,2017-10-05,CAS03
+SQ16,Appoggio,Centro Storico,2023-01-15,CAS01
+SQ17,Nucleo USAR,Firenze Sud,2014-03-10,CAS02
+SQ18,Nucleo Cinofili,Regione Toscana,2017-10-05,CAS03

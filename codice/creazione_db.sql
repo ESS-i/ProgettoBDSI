@@ -3,6 +3,7 @@
 DROP DATABASE IF EXISTS VigiliDelFuoco;
 CREATE DATABASE VigiliDelFuoco;
 USE VigiliDelFuoco;
+SET GLOBAL local_infile=1;
 
 #################### CREAZIONE TABELLE ####################
 
@@ -122,24 +123,23 @@ CREATE TABLE Manutenzione (
 
 #################### IMPORTAZIONE DEI DATI ####################
 
-LOAD DATA LOCAL INFILE 'dati/caserma.txt' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/caserma.txt' 
 INTO TABLE Caserma 
 FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '|' IGNORE 4 LINES;
 
-LOAD DATA LOCAL INFILE 'dati/officina.csv' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/officina.csv' 
 INTO TABLE Officina 
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE 'dati/convenzione.csv' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/convenzione.csv' 
 INTO TABLE Convenzione 
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE 'dati/squadra.csv' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/squadra.csv' 
 INTO TABLE Squadra 
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
 
--- Dipendente (CSV corretto a 14 colonne)
-LOAD DATA LOCAL INFILE 'dati/dipendente.csv' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/dipendente.csv' 
 INTO TABLE Dipendente 
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS
 (CodDip, NomeDip, CognomeDip, Stipendio, @GradoVigile, @AnnoAssunzione, @OrarioTurno, @MansioneAmm, @LivFunzionale, @AbilitFirma, @CodSquad, @DataEntrata, @DataUscita, CodCaserma)
@@ -154,28 +154,28 @@ CodSquad = NULLIF(@CodSquad, ''),
 DataEntrata = NULLIF(@DataEntrata, ''),
 DataUscita = NULLIF(@DataUscita, '');
 
-LOAD DATA LOCAL INFILE 'dati/mezzo.csv' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/mezzo.csv' 
 INTO TABLE Mezzo 
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS
 (CodMezzo, ClasseMezzo, ModelloMezzo, AnnoFabbMezzo, @DataUltManut)
 SET DataUltManut = NULLIF(@DataUltManut, '');
 
-LOAD DATA LOCAL INFILE 'dati/chiamata.csv' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/chiamata.csv' 
 INTO TABLE Chiamata 
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE 'dati/intervento.csv' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/intervento.csv' 
 INTO TABLE Intervento 
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE 'dati/assegnatoa.csv' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/assegnatoa.csv' 
 INTO TABLE AssegnatoA 
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE 'dati/impiegatoin.csv' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/impiegatoin.csv' 
 INTO TABLE ImpiegatoIn 
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE 'dati/manutenzione.csv' 
+LOAD DATA LOCAL INFILE '/home/silvio/Progetti/ProgettoBDSI/codice/dati/manutenzione.csv' 
 INTO TABLE Manutenzione 
 FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
