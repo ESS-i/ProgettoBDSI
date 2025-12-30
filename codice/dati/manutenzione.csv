@@ -1,6 +1,11 @@
 CodManut,DataSvolgManut,SpesaManut,TipoManut,DescrManut,CodDip,DataRichiesta,CodOff,CodMezzo
-MAN001,2025-06-15,500.00,Ordinaria,Tagliando completo,D006,2025-06-01,OFF01,VF20100
-MAN002,2025-01-20,1200.50,Straordinaria,Riparazione scala idraulica,D006,2025-01-10,OFF01,VF20101
-MAN003,2025-08-10,300.00,Ordinaria,Cambio gomme,D015,2025-08-01,OFF03,VF20102
-MAN004,2025-09-01,150.00,Ordinaria,Revisione freni,D015,2025-08-25,OFF02,VF20103
-MAN005,2025-11-05,2000.00,Straordinaria,Sostituzione pompa acqua,D006,2025-10-30,OFF01,VF20104
+MAN01,2025-06-15,500.0,Ordinaria,Tagliando periodico completo,D013,2025-06-01,OFF01,VF20100
+MAN02,2025-01-20,650.0,Ordinaria,Sostituzione pneumatici e freni,D014,2025-01-06,OFF02,VF20101
+MAN03,2025-08-10,800.0,Ordinaria,Revisione impianto idraulico,D013,2025-07-27,OFF01,VF20102
+MAN04,2025-09-01,950.0,Ordinaria,Controllo sistema elettrico,D014,2025-08-18,OFF02,VF20103
+MAN05,2025-11-05,1100.0,Ordinaria,Manutenzione ordinaria motore,D013,2025-10-22,OFF01,VF20104
+MAN06,2025-03-30,1250.0,Ordinaria,Verifica attrezzature di bordo,D014,2025-03-16,OFF02,VF20105
+MAN07,2025-10-01,1400.0,Ordinaria,Revisione annuale scafo/carlinga,D013,2025-09-17,OFF01,VF30001
+MAN08,2025-07-20,1550.0,Ordinaria,Sostituzione fluidi e filtri,D014,2025-07-06,OFF02,VF30002
+MAN09,2025-05-15,1700.0,Ordinaria,Riparazione carrozzeria,D013,2025-05-01,OFF01,VF40001
+MAN10,2025-02-28,1850.0,Ordinaria,Controllo emissioni,D014,2025-02-14,OFF02,VF20106

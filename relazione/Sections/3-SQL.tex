@@ -1,0 +1,24 @@
+\section{SQL}
+\subsection{Creazione e popolamento}
+Per quanto riguarda il codice, abbiamo deciso di creare 2 script, uno di creazione e popolamento e un altro per la creazione di triggers, procedure, viste e interrogazioni.
+La traduzione è stata relativamente semplice partendo dallo schema logico (\ref{log_sch}) e dai vincoli di integrità espressi per mezzo di \textit{foreign keys}.
+Per il popolamento ci siamo serviti di vari file csv, contenenti i dati di nostro interesse (abbiamo usato tool di intelligenza artificiale per la loro generazione), rappresentanti un contesto piccolo per mantenere le cose molto semplici.
+La loro importazione avviene direttamente nello script \verb|creazione_db.sql|. \\
+\textcolor{orange}{Si faccia attenzione ai path assoluti e al fatto che i file sono stati manipolati fra ambienti Windows e Linux diversi, pertanto potrebbero essere necessari aggiustamenti ai terminatori di riga e ai percorsi}.
+
+\subsection{Procedure}
+Per quanto concerne le procedure che abbiamo deciso di inserire, valutando le operazioni più comuni (già menzionate nella parte di analisi delle ridondanze)
+abbiamo:
+\begin{itemize}
+    \item Inserisci\_Chiamata
+    \item Crea\_Intervento
+    \item Verifica\_Idoneita\_Mezzo, che controlla se il mezzo è a norma o meno 
+    \item Registra\_Manutenzione
+\end{itemize}
+I nomi sono autoesplicativi.
+\subsection{Viste e interrogazioni}
+
+Abbiamo deciso di inserire viste per i vari tipi di dipendenti (già avevamo notato come fare ogni volta controlli sui NULL
+fosse particolarmente lungo e inutile), ossia Vigli, Centralinisti e Amministrativi.
+Abbiamo poi inserito una vista per avere a disposizione i mezzi idonei e un'altra per visualizzare tutti i report dei vari interventi in forma completa.
+Sono presenti nello script poche e semplici interrogazioni sul db, con alcune di esse che sfruttano le viste create. 

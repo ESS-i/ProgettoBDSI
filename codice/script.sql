@@ -242,4 +242,48 @@ DELIMITER ;
 
 
 
+-- INTERROGAZIONI 
 
+
+-- Elenco dei vigili che hanno stipendio sopra la media
+SELECT NomeDip, CognomeDip, GradoVigile, Stipendio 
+FROM Vista_Vigili 
+WHERE Stipendio > (SELECT AVG(Stipendio) FROM Vista_Vigili)
+ORDER BY Stipendio DESC;
+
+
+-- Numero di interventi effettuati da ogni squadra
+SELECT s.DenomOper AS Squadra, COUNT(a.CodInt) AS NumeroInterventi
+FROM Squadra s
+JOIN AssegnatoA a ON s.CodSquad = a.CodSquad
+GROUP BY s.DenomOper
+ORDER BY NumeroInterventi DESC;
+
+
+-- Chiamate che non hanno generato interventi (sfruttiamo la left join)
+SELECT c.CodChiam, c.OrarioInizioChiam, c.NumChiamante, c.DescrChiam
+FROM Chiamata c
+LEFT JOIN Intervento i ON c.CodChiam = i.CodChiam
+WHERE i.CodInt IS NULL;
+
+
+-- Trovare chi ha richiesto le manutenzioni straordinarie più costose, su quale mezzo, quando e quanto è costato.
+
+SELECT 
+    man.DataSvolgManut, 
+    m.ModelloMezzo, 
+    o.NomeOff AS Officina, 
+    man.SpesaManut,
+    d.CognomeDip AS Richiedente
+FROM Manutenzione man
+JOIN Mezzo m ON man.CodMezzo = m.CodMezzo
+JOIN Officina o ON man.CodOff = o.CodOff
+JOIN Dipendente d ON man.CodDip = d.CodDip
+WHERE man.SpesaManut > 1000
+ORDER BY man.SpesaManut DESC;
+
+-- Filtrare i soli incendi
+SELECT Squadra_Intervenuta, EsitoInt, OraFineInt
+FROM Report_Interventi
+WHERE TipoInt LIKE '%Incendio%'
+ORDER BY OraFineInt DESC;

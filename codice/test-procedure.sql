@@ -1,6 +1,4 @@
--- #############################################################
--- PREPARAZIONE DATI DI TEST (Per evitare errori di Chiave Esterna)
--- #############################################################
+
 
 INSERT INTO Caserma (CodCaserma, CittàCaserma) VALUES ('CAS_TEST', 'Roma');
 INSERT INTO Officina (CodOff, NomeOff) VALUES ('OFF_TEST', 'Officina Prova');
@@ -12,70 +10,63 @@ WHERE CodDip = 'DIP_TEST';
 INSERT INTO Mezzo (CodMezzo, DataUltManut) VALUES ('MEZZO_TEST', '2020-01-01');
 
 -- #############################################################
--- TEST 1: Inserisci_Chiamata (Operazione O1)
+-- TEST 1: Inserisci_Chiamata
 -- #############################################################
 
--- Inseriamo una chiamata con ID 'CH_TEST'
 CALL Inserisci_Chiamata(
-    'CH_TEST',              -- CodChiam
-    NOW(),                  -- Inizio (Adesso)
-    ADDTIME(NOW(), '0:10'), -- Fine (Tra 10 min)
-    'Incendio sterpaglie',  -- Descrizione
-    '3331234567',           -- Numero
-    'DIP_TEST'              -- Dipendente
+    'CH_TEST',              
+    NOW(),                  
+    ADDTIME(NOW(), '0:10'), 
+    'Incendio sterpaglie', 
+    '3331234567',          
+    'DIP_TEST'             
 );
 
--- Verifica inserimento
+-- Verifica 
 SELECT * FROM Chiamata WHERE CodChiam = 'CH_TEST';
 
 -- #############################################################
--- TEST 2: Crea_Intervento (Operazione O2)
+-- TEST 2: Crea_Intervento
 -- #############################################################
 
--- Creiamo un intervento 'INT_TEST' generato dalla chiamata 'CH_TEST'
 CALL Crea_Intervento(
-    'INT_TEST',    -- CodInt
-    'CH_TEST',     -- CodChiam (generatore)
-    'Incendio',    -- Tipo
-    5,             -- Priorità
-    'SQ_TEST'      -- Squadra assegnata
+    'INT_TEST',    
+    'CH_TEST',    
+    'Incendio',    
+    5,             
+    'SQ_TEST'      
 );
 
--- Verifica creazione Intervento
 SELECT * FROM Intervento WHERE CodInt = 'INT_TEST';
 -- Verifica assegnazione automatica Squadra
 SELECT * FROM AssegnatoA WHERE CodInt = 'INT_TEST';
 
 -- #############################################################
--- TEST 3: Registra_Manutenzione (Operazione O4)
+-- TEST 3: Registra_Manutenzione
 -- #############################################################
-
--- Nota: Prima del test, il MEZZO_TEST ha data manutenzione '2020-01-01'.
--- Inseriamo una nuova manutenzione svolta OGGI.
 
 CALL Registra_Manutenzione(
     'MAN_TEST',    -- CodManut
-    CURDATE(),     -- DataSvolg (Oggi)
-    500.00,        -- Spesa
+    CURDATE(),    
+    500.00,        
     'Ordinaria',   -- Tipo
     'Cambio Olio', -- Descrizione
     'DIP_TEST',    -- Richiedente
     CURDATE(),     -- Data Richiesta
-    'OFF_TEST',    -- Officina
-    'MEZZO_TEST'   -- Mezzo
+    'OFF_TEST',    
+    'MEZZO_TEST'    
 );
 
 -- Verifica inserimento Manutenzione
 SELECT * FROM Manutenzione WHERE CodManut = 'MAN_TEST';
 
--- Verifica AGGIORNAMENTO RIDONDANZA su Mezzo (Deve essere la data di oggi)
 SELECT CodMezzo, DataUltManut FROM Mezzo WHERE CodMezzo = 'MEZZO_TEST';
 
 -- #############################################################
--- TEST 4: Verifica_Idoneita_Mezzo (Operazione O3)
+-- TEST 4: Verifica_Idoneita_Mezzo 
 -- #############################################################
 
--- Caso A: Il mezzo è stato appena manutenuto (Test 3), quindi DEVE essere idoneo (1).
+-- Caso A: Il mezzo è stato appena manutenuto  quindi deve essere idoneo
 SET @esito = 0;
 CALL Verifica_Idoneita_Mezzo('MEZZO_TEST', @esito);
 SELECT 'Test Mezzo Appena Revisionato (Atteso: 1)' AS Descrizione, @esito AS Idoneo;
@@ -88,7 +79,7 @@ CALL Verifica_Idoneita_Mezzo('MEZZO_TEST', @esito);
 SELECT 'Test Mezzo Vecchio (Atteso: 0)' AS Descrizione, @esito AS Idoneo;
 
 -- #############################################################
--- PULIZIA DATI DI TEST
+-- Pulisco tutto dal db
 -- #############################################################
 DELETE FROM Manutenzione WHERE CodManut = 'MAN_TEST';
 DELETE FROM AssegnatoA WHERE CodInt = 'INT_TEST';
