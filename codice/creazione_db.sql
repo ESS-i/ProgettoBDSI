@@ -125,7 +125,7 @@ CREATE TABLE Manutenzione (
 
 LOAD DATA LOCAL INFILE 'C:/Users/silvi/ProgettoBDSI/codice/dati/caserma.txt' 
 INTO TABLE Caserma 
-FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '|' IGNORE 4 LINES;
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '|' LINES TERMINATED BY '\r\n' IGNORE 4 LINES;
 
 LOAD DATA LOCAL INFILE 'C:/Users/silvi/ProgettoBDSI/codice/dati/officina.csv' 
 INTO TABLE Officina 
