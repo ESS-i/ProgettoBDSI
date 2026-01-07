@@ -3,6 +3,7 @@
 DROP DATABASE IF EXISTS VigiliDelFuoco;
 CREATE DATABASE VigiliDelFuoco;
 USE VigiliDelFuoco;
+#Per permettere l'inserimento dei file csv esterni dobbiamo settare questa variabile a true
 SET GLOBAL local_infile=1;
 
 #################### CREAZIONE TABELLE ####################

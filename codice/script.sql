@@ -267,7 +267,7 @@ LEFT JOIN Intervento i ON c.CodChiam = i.CodChiam
 WHERE i.CodInt IS NULL;
 
 
--- Trovare chi ha richiesto le manutenzioni straordinarie più costose, su quale mezzo, quando e quanto è costato.
+-- Trovare chi ha richiesto le manutenzioni più costose, su quale mezzo, quando e quanto è costato.
 
 SELECT 
     man.DataSvolgManut, 
