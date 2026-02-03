@@ -163,7 +163,7 @@ In primo luogo siamo partiti da 3 differenti micro-schemi di questo tipo:
 \end{figure}
 
 in cui abbiamo preso in considerazione un sottoinsieme delle varie entità individuando le relazioni fondamentali che le legano.
-In particolare si noti come la base dovrebbe occuparsi della gestione di 3 ambiti diversi: gestione chiamate, interventi e richiesta di manutenzione.
+In particolare si noti come la nostra base di dati dovrebbe occuparsi della gestione di 3 ambiti diversi: gestione chiamate, interventi e richiesta di manutenzione.
 
 Osserviamo come i \textbf{vigili}, i \textbf{centralinisti} e il \textbf{personale amministrativo} possano essere accorpati all’interno della generalizzazione (dalle specifiche totale ed esclusiva) \textbf{Dipendente} che riunisce le caratteristiche (attributi) comuni, come il \textit{nome}, il \textit{cognome}, lo \textit{stipendio} percepito e la \textbf{\textit{caserma}} in cui lavorano.
 Risulta il seguente:
@@ -263,7 +263,7 @@ Di seguito riportiamo le associazioni individuate tra le entità, con le relativ
         \rowcolor{lightgrey}
         \multicolumn{1}{|c|}{\textbf{Relazione}} & \multicolumn{1}{c|}{\textbf{Entità e Cardinalità}} & \multicolumn{1}{c|}{\textbf{Descrizione breve}} \\
         \hline
-        \textbf{APPARTENENZA} & \textbf{Vigile} (1,1) \newline \textbf{Squadra} (3,N) & Un vigile appartiene ad una singola squadra, una squadra deve essere fatta da almeno 3 vigili \\
+        \textbf{APPARTENENZA} & \textbf{Vigile} (1,1) \newline \textbf{Squadra} (3,N) & Un vigile appartiene ad una singola squadra, una squadra deve essere fatta da almeno 3 vigili  \\
         \hline
         \textbf{ASSEGNATO A} & \textbf{Squadra} (0,N) \newline \textbf{Intervento} (1,N) & Una squadra può o meno essere assegnato ad un determinato intervento, ma ogni intervento deve essere assegnato almeno ad una squadra \\
         \hline
@@ -314,7 +314,7 @@ Durante la fase di progettazione sono stati individuati dei vincoli non esprimib
     \hline
     V4 & Gli importi monetari (stipendi, \textit{SpesaManut}) e le priorità degli interventi devono assumere valori positivi e coerenti con il dominio (es. priorità 1-5). \\
     \hline
-    V5 & Una squadra deve essere composta da almeno 3 vigili attivi (vincolo di cardinalità minima complesso). \\
+    V5 & Una squadra deve essere composta da almeno 3 vigili attivi \footnote{Nella versione finale dello script non abbiamo controllato il soddisfacimento di questo vincolo: per farlo avremmo semplicemente dovuto aggiungere un trigger per gestire il tutto}. \\
     \hline
     V6 & Solo il personale amministrativo con l'attributo \textit{AbilitFirma} impostato a \textit{true} può effettuare richieste di manutenzione. \\
     \hline

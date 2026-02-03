@@ -135,7 +135,7 @@ Per effettuare delle eventuali interrogazioni sfrutteremo le viste per semplicit
 
 \subsubsection{Partizionamento di entità, eliminazione attributi composti e multivalore}
 Nello schema sono presenti degli attributi composti usati per rappresentare gli indirizzi (delle caserme e delle officine); li scorporiamo in attributi semplici. 
-Abbiamo deciso di non inserire attributi multivalore nel nostro schema relazionale per rispettare la prima forma normale, che in caso contrario sarebbe stata violata.
+Non sono presenti attributi multivalore, che avremmo comunque dovuto rimuovere in quanto non rappresentabili usando il modello relazionale.
 Per quanto concerne il partizionamento di associazioni, non abbiamo avuto necessità di modifiche ulteriori.
 \subsubsection{Scelta degli identificatori primari}
 Per ogni entità dello schema ristrutturato, definiamo l'identificatore principale che verrà utilizzato nel modello relazionale.     
@@ -181,7 +181,7 @@ A questo punto otteniamo il seguente schema ristrutturato:
 \subsubsection{Schema logico}
 \textbf{Caserma}(\underline{CodCaserma}, NumTelCaserma, ViaCaserma, CivicoCaserma, CapCaserma, CittàCaserma)\\
 \textbf{Convenzione}(\underline{CodCaserma}, \underline{CodOff})\\
-\textbf{Dipendente}(\underline{CodDip}, NomeDip, CognomeDip, Stipendio, *GradoVigile, *AnnoAssunzione, *OrarioTurno, *MansioneAmm, *LivFunzionale, *AbilitFirma, *CodSquad, *DataEntrata, *DataUscita, CodCaserma)\\
+\textbf{Dipendente}(\underline{CodDip}, NomeDip, CognomeDip, Stipendio, *GradoVigile, *AnnoAssunzione, *OrarioTurno, *MansioneAmm, *LivFunzionale, *AbilitFirma, CodSquad\footnote{Nota: un dipendente potrebbe anche non essere vigile, quindi nel nostro db lo abbiamo considerato come possibile null, anche se in realtà la partecipazione è obbligatoria nello schema E-R.}, *DataEntrata, *DataUscita, CodCaserma)\\
 \textbf{Squadra}(\underline{CodSquad}, DenomOper, AreaComp, DataCostit, CodCaserma)\\
 \textbf{AssegnatoA}(\underline{CodSquad}, \underline{CodInt})\\
 \textbf{Intervento}(\underline{CodInt}, TipoInt, PrioritàInt, OraFineInt, EsitoInt, CodChiam)\\
